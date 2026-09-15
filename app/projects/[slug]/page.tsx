@@ -18,6 +18,10 @@ const lavalAssetPath = "/Laval/assets/RENDU_Dynamique_des_fluides";
 
 function LavalProjectPage({ lang }: { lang: "fr" | "en" }) {
   const fr = lang === "fr";
+  const attribution = {
+    fr: "Projet réalisé avec Hugo Busolini dans le cadre du module MF421 — Computational Fluid Dynamics, IPSA Toulouse, 2025/2026.",
+    en: "Project completed with Hugo Busolini for MF421 — Computational Fluid Dynamics, IPSA Toulouse, 2025/2026.",
+  };
   const overviewStats: { Icon: LucideIcon; value: string; label: string }[] = [
     { Icon: Gauge, value: "M = 2,33", label: fr ? "Mach de sortie théorique" : "Theoretical outlet Mach" },
     { Icon: GitCompareArrows, value: "0,35 %", label: fr ? "Écart débit numérique / théorie" : "Numerical / theoretical mass-flow gap" },
@@ -177,7 +181,7 @@ function LavalProjectPage({ lang }: { lang: "fr" | "en" }) {
       </section>
 
       <footer className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 py-12 sm:flex-row sm:items-center sm:px-10 lg:px-12">
-        <p className="max-w-xl text-sm leading-6 text-text-dim">{fr ? "Projet réalisé avec Hugo Busolini dans le cadre du module MF421 — Computational Fluid Dynamics, IPSA Toulouse, 2025/2026." : "Project completed with Hugo Busolini for MF421 — Computational Fluid Dynamics, IPSA Toulouse, 2025/2026."}</p>
+        <p className="max-w-xl text-sm leading-6 text-text-dim">{fr ? attribution.fr : attribution.en}</p>
         <HoverBorderGradient href="/#projets"><ArrowLeft className="size-4" aria-hidden="true" />{labels.back}</HoverBorderGradient>
       </footer>
     </main>
@@ -186,6 +190,10 @@ function LavalProjectPage({ lang }: { lang: "fr" | "en" }) {
 
 function DroneProjectPage({ lang }: { lang: "fr" | "en" }) {
   const fr = lang === "fr";
+  const attribution = {
+    fr: "Projet réalisé dans le cadre du module d'automatique et de commande — MATLAB/Simulink, IPSA Toulouse, 2025/2026.",
+    en: "Project completed as part of the automatic control module — MATLAB/Simulink, IPSA Toulouse, 2025/2026.",
+  };
   const stats: { Icon: LucideIcon; value: string; label: string }[] = [
     { Icon: Bot, value: "4", label: fr ? "moteurs pilotés" : "controlled motors" },
     { Icon: SlidersHorizontal, value: "PD", label: fr ? "correcteurs de position" : "position controllers" },
@@ -235,13 +243,17 @@ function DroneProjectPage({ lang }: { lang: "fr" | "en" }) {
 
       <section className="border-y border-border bg-bg-panel-2"><div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 sm:px-10 lg:grid-cols-[0.75fr_1.25fr] lg:px-12 lg:py-24"><div><p className="font-mono text-xs uppercase tracking-[0.3em] text-accent">{fr ? "Conclusion" : "Conclusion"}</p><h2 className="mt-4 font-display text-3xl font-semibold text-metal-light">{fr ? "Une chaîne autonome fonctionnelle, à affiner." : "A working autonomous chain, ready to refine."}</h2></div><div className="grid gap-px border border-border bg-border sm:grid-cols-3">{(fr ? [["Modéliser", "Le drone et ses actionneurs sont intégrés dans une même chaîne Simulink."], ["Automatiser", "Le gestionnaire de points permet d'enchaîner les cibles sans intervention."], ["Améliorer", "Un réglage PID et la prise en compte du bruit réduiraient les dépassements observés."]] : [["Model", "The drone and its actuators are integrated into one Simulink chain."], ["Automate", "The waypoint manager sequences targets without intervention."], ["Improve", "PID tuning and noise modeling would reduce the observed overshoots."]]).map(([title, description]) => <div key={title} className="bg-bg-panel-2 p-6"><p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">{title}</p><p className="mt-5 text-sm leading-7 text-text-dim">{description}</p></div>)}</div></div></section>
 
-      <footer className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 py-12 sm:flex-row sm:items-center sm:px-10 lg:px-12"><p className="max-w-xl text-sm leading-6 text-text-dim">{fr ? "Projet de modélisation, commande et simulation d'un drone autonome sous MATLAB/Simulink." : "Modeling, control, and simulation project for an autonomous drone in MATLAB/Simulink."}</p><HoverBorderGradient href="/#projets"><ArrowLeft className="size-4" aria-hidden="true" />{labels.back}</HoverBorderGradient></footer>
+      <footer className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 py-12 sm:flex-row sm:items-center sm:px-10 lg:px-12"><p className="max-w-xl text-sm leading-6 text-text-dim">{fr ? attribution.fr : attribution.en}</p><HoverBorderGradient href="/#projets"><ArrowLeft className="size-4" aria-hidden="true" />{labels.back}</HoverBorderGradient></footer>
     </main>
   );
 }
 
 function RocketProjectPage({ lang }: { lang: "fr" | "en" }) {
   const fr = lang === "fr";
+  const attribution = {
+    fr: "Projet réalisé avec Fatima dans le cadre du module d'option propulsion — ASTRAF, IPSA Toulouse, 2025/2026.",
+    en: "Project completed with Fatima as part of the propulsion elective module — ASTRAF, IPSA Toulouse, 2025/2026.",
+  };
   const stats: { Icon: LucideIcon; value: string; label: string }[] = [
     { Icon: Gauge, value: "60-65 m", label: fr ? "apogée mesurée" : "measured apogee" },
     { Icon: Waves, value: "RP2040", label: fr ? "carte électronique embarquée" : "onboard electronics board" },
@@ -292,12 +304,16 @@ function RocketProjectPage({ lang }: { lang: "fr" | "en" }) {
         </figure>
       </div>
     </section>
-    <footer className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 py-12 sm:flex-row sm:items-center sm:px-10 lg:px-12"><p className="max-w-xl text-sm leading-6 text-text-dim">{fr ? "Projet ASTRAF : conception, réalisation et lancement d'une microfusée expérimentale." : "ASTRAF project: design, build, and launch of an experimental micro-rocket."}</p><HoverBorderGradient href="/#projets"><ArrowLeft className="size-4" />{back}</HoverBorderGradient></footer>
+    <footer className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 py-12 sm:flex-row sm:items-center sm:px-10 lg:px-12"><p className="max-w-xl text-sm leading-6 text-text-dim">{fr ? attribution.fr : attribution.en}</p><HoverBorderGradient href="/#projets"><ArrowLeft className="size-4" />{back}</HoverBorderGradient></footer>
   </main>;
 }
 
 function AerospikeProjectPage({ lang }: { lang: "fr" | "en" }) {
   const fr = lang === "fr";
+  const attribution = {
+    fr: "Projet réalisé avec Hugo Busolini, Cordoba, Alexi Grandperret et Hasegawa dans le cadre du module EN422 — Turbomachines, IPSA Toulouse, 2025/2026.",
+    en: "Project completed with Hugo Busolini, Cordoba, Alexi Grandperret, and Hasegawa for EN422 — Turbomachines, IPSA Toulouse, 2025/2026.",
+  };
   const stats: { Icon: LucideIcon; value: string; label: string }[] = [
     { Icon: Gauge, value: "M = 2,71", label: fr ? "Mach de sortie adapté" : "adapted exit Mach" },
     { Icon: Waves, value: "1618,28 m/s", label: fr ? "vitesse d'éjection idéale" : "ideal exhaust velocity" },
@@ -312,12 +328,16 @@ function AerospikeProjectPage({ lang }: { lang: "fr" | "en" }) {
     <section id="resultats-aerospike" className="mx-auto max-w-7xl px-6 py-16 sm:px-10 lg:px-12 lg:py-24"><p className="font-mono text-xs uppercase tracking-[0.3em] text-accent">03 / {fr ? "La méthode des caractéristiques" : "Method of characteristics"}</p><h2 className="mt-4 max-w-3xl font-display text-3xl font-semibold text-metal-light">{fr ? "La méthode des caractéristiques donne sa forme à l'aerospike." : "The method of characteristics gives the aerospike its shape."}</h2><div className="mt-10 grid gap-5 lg:grid-cols-2"><figure className="border border-border bg-bg p-3"><img src="/Turbomachine/assets/aerospike-report-028.png" alt={fr ? "Schéma analytique des invariants de Riemann C plus et C moins avec beta initial" : "Analytical Riemann invariants C plus and C minus with initial beta"} className="w-full" /><figcaption className="border-t border-border px-2 pt-3 text-sm leading-6 text-text-dim">{fr ? "Les invariants C+/C- transmettent l'information de l'éventail depuis β_init et relient les caractéristiques descendantes aux caractéristiques montantes." : "The C+/C- invariants carry expansion-fan information from β_init and connect falling characteristics to rising characteristics."}</figcaption></figure><figure className="border border-border bg-bg p-3"><img src="/Turbomachine/assets/aerospike-report-045.png" alt={fr ? "Réseau de caractéristiques discrétisé avec points de réflexion et intersections" : "Discretized characteristic network with reflection points and intersections"} className="w-full" /><figcaption className="border-t border-border px-2 pt-3 text-sm leading-6 text-text-dim">{fr ? "Le graphe numérique distingue les points de réflexion et les intersections i+/j-. Chaque réflexion impose la tangence locale de l'écoulement à la paroi." : "The numerical graph distinguishes reflection points and i+/j- intersections. Each reflection imposes local flow tangency to the wall."}</figcaption></figure></div></section>
     <section className="border-y border-border bg-bg-panel-2"><div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 sm:px-10 lg:grid-cols-[0.75fr_1.25fr] lg:px-12 lg:py-24"><div><p className="font-mono text-xs uppercase tracking-[0.3em] text-accent">{fr ? "Conclusion" : "Conclusion"}</p><h2 className="mt-4 font-display text-3xl font-semibold text-metal-light">{fr ? "Une poussée idéale, puis les limites du modèle." : "Ideal thrust, then the model limits."}</h2></div><div className="grid gap-px border border-border bg-border sm:grid-cols-3">{(fr ? [["Modéliser", "L'expansion isentropique et les invariants de Riemann relient les conditions thermodynamiques à la forme de la paroi."], ["Calculer", "Le modèle donne une vitesse d'éjection de 1618,28 m/s et une poussée brute idéale de 165,1 kN."], ["Nuancer", "Les pertes sont négligées et la section réelle est plus faible que la section idéale : la poussée obtenue en pratique sera donc inférieure."]] : [["Model", "Isentropic expansion and Riemann invariants connect thermodynamic conditions to the wall shape."], ["Calculate", "The model gives a 1618.28 m/s exhaust velocity and 165.1 kN ideal gross thrust."], ["Qualify", "Losses are neglected and the real section is lower than the ideal one, so practical thrust will be lower."]]).map(([title, description]) => <div key={title} className="bg-bg-panel-2 p-6"><p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">{title}</p><p className="mt-5 text-sm leading-7 text-text-dim">{description}</p></div>)}</div></div></section>
     <section className="mx-auto max-w-7xl px-6 py-16 sm:px-10 lg:px-12 lg:py-24"><div className="grid gap-8 border-y border-border py-12 lg:grid-cols-[0.75fr_1.25fr]"><div><p className="font-mono text-xs uppercase tracking-[0.3em] text-accent">{fr ? "Limites et perspectives" : "Limits and outlook"}</p><h2 className="mt-4 font-display text-3xl font-semibold text-metal-light">{fr ? "Vers une paroi réellement adaptée." : "Toward a truly adapted wall."}</h2></div><p className="max-w-3xl text-base leading-8 text-text-dim">{fr ? "Une géométrie par spline, tangente en tout point à l'écoulement local (β_curve = β_ij,local), a été identifiée comme l'évolution naturelle du modèle : en laissant l'écoulement imposer la géométrie plutôt que l'inverse, elle supprimerait les réflexions de caractéristiques et permettrait un gain de poussée par une détente plus complète en sortie." : "A spline geometry, tangent to the local flow at every point with β_curve = β_ij_local, was identified as the natural model improvement. It was not implemented due to time constraints, a deliberate choice to avoid relying on unmastered AI-generated code."}</p></div></section>
-    <footer className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 py-12 sm:flex-row sm:items-center sm:px-10 lg:px-12"><p className="max-w-xl text-sm leading-6 text-text-dim">{fr ? "Projet EN422 : conception théorique d'une tuyère aerospike supersonique." : "EN422 project: theoretical design of a supersonic aerospike nozzle."}</p><HoverBorderGradient href="/#projets"><ArrowLeft className="size-4" />{back}</HoverBorderGradient></footer>
+    <footer className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 py-12 sm:flex-row sm:items-center sm:px-10 lg:px-12"><p className="max-w-xl text-sm leading-6 text-text-dim">{fr ? attribution.fr : attribution.en}</p><HoverBorderGradient href="/#projets"><ArrowLeft className="size-4" />{back}</HoverBorderGradient></footer>
   </main>;
 }
 
 function SafProjectPage({ lang }: { lang: "fr" | "en" }) {
   const fr = lang === "fr";
+  const attribution = {
+    fr: "Projet réalisé avec Hugo Busolini, Cordoba, Alexi Grandperret et Hasegawa dans le cadre du module EN426 — Sustainable Aviation, IPSA Toulouse, 2025/2026.",
+    en: "Project completed with Hugo Busolini, Cordoba, Alexi Grandperret, and Hasegawa for EN426 — Sustainable Aviation, IPSA Toulouse, 2025/2026.",
+  };
   const back = fr ? "Retour aux projets" : "Back to projects";
   const report = "/SAF/En426_BUSOLINI_CORDOBA_GRANDPERRET_HASEGAWA%20(1).pdf";
   return (
@@ -425,7 +445,7 @@ function SafProjectPage({ lang }: { lang: "fr" | "en" }) {
       </section>
 
       <footer className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-6 px-6 py-12 sm:flex-row sm:items-center sm:px-10 lg:px-12">
-        <p className="max-w-xl text-sm leading-6 text-text-dim">{fr ? "Projet réalisé autour de l'analyse des carburants d'aviation durables et du cas Virgin Atlantic Flight 100." : "Project focused on sustainable aviation fuels and the Virgin Atlantic Flight 100 case."}</p>
+        <p className="max-w-xl text-sm leading-6 text-text-dim">{fr ? attribution.fr : attribution.en}</p>
         <HoverBorderGradient href="/#projets"><ArrowLeft className="size-4" aria-hidden="true" />{back}</HoverBorderGradient>
       </footer>
     </main>
