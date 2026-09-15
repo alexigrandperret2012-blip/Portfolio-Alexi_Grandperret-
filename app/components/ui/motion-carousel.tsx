@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useInView } from "motion/react";
 import type { MotionValue } from "motion/react";
 import { cn } from "@/app/lib/utils";
 
@@ -11,18 +11,26 @@ interface MotionCarouselProps {
   imageFilter?: string | MotionValue<string>;
 }
 
+const isVideoSlide = (src: string) => /\.(mov|mp4|webm)($|\?)/i.test(src);
+
 export function MotionCarousel({ slides, className, imageFilter }: MotionCarouselProps) {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const isVisible = useInView(carouselRef, { margin: "240px 0px", once: false });
   const [active, setActive] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const count = slides.length;
+  const currentIsVideo = isVideoSlide(slides[active]);
+  const carouselStateRef = useRef({ isVisible, isPaused, currentIsVideo });
+  carouselStateRef.current = { isVisible, isPaused, currentIsVideo };
 
   useEffect(() => {
-    if (count < 2 || isPaused) return;
     const timer = window.setInterval(() => {
+      const { isVisible, isPaused, currentIsVideo } = carouselStateRef.current;
+      if (count < 2 || !isVisible || isPaused || currentIsVideo) return;
       setActive((value) => (value + 1) % count);
     }, 4200);
     return () => window.clearInterval(timer);
-  }, [count, isPaused]);
+  }, []);
 
   const move = (direction: number) => {
     setActive((value) => (value + direction + count) % count);
@@ -31,6 +39,7 @@ export function MotionCarousel({ slides, className, imageFilter }: MotionCarouse
   return (
     <div className={cn("relative w-full", className)}>
       <motion.div
+        ref={carouselRef}
         className="relative mx-auto h-[14.5rem] w-full max-w-3xl overflow-hidden rounded-2xl border border-white/15 bg-[#020814]/70 shadow-[0_-24px_70px_rgba(34,211,238,0.16),0_18px_45px_rgba(0,0,0,0.32)] md:h-[18.5rem]"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
@@ -41,18 +50,36 @@ export function MotionCarousel({ slides, className, imageFilter }: MotionCarouse
         style={{ transformPerspective: 1200 }}
       >
         <AnimatePresence initial={false} mode="popLayout">
-          <motion.img
-            key={slides[active]}
-            src={slides[active]}
-            alt="Photo de l'expérience professionnelle"
-            className="absolute inset-0 h-full w-full object-cover contrast-[1.03] saturate-[0.96]"
-            style={{ filter: imageFilter ?? "brightness(0.82) saturate(0.9)" }}
-            initial={{ opacity: 0, x: 70, scale: 1.04 }}
-            animate={{ opacity: 0.96, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: -70, scale: 0.98 }}
-            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-            draggable={false}
-          />
+          {isVideoSlide(slides[active]) ? (
+            <motion.video
+              key={slides[active]}
+              src={slides[active]}
+              className="absolute inset-0 h-full w-full object-cover contrast-[1.03] saturate-[0.96]"
+              style={{ filter: imageFilter ?? "brightness(0.82) saturate(0.9)", willChange: "transform, opacity" }}
+              initial={{ opacity: 0, x: 70, scale: 1.04 }}
+              animate={{ opacity: 0.96, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: -70, scale: 0.98 }}
+              transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+              autoPlay={isVisible}
+              muted
+              preload={isVisible ? "metadata" : "none"}
+              playsInline
+              onEnded={() => setActive((value) => (value + 1) % count)}
+            />
+          ) : (
+            <motion.img
+              key={slides[active]}
+              src={slides[active]}
+              alt="Photo de l'expérience professionnelle"
+              className="absolute inset-0 h-full w-full object-cover contrast-[1.03] saturate-[0.96]"
+              style={{ filter: imageFilter ?? "brightness(0.82) saturate(0.9)" }}
+              initial={{ opacity: 0, x: 70, scale: 1.04 }}
+              animate={{ opacity: 0.96, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: -70, scale: 0.98 }}
+              transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+              draggable={false}
+            />
+          )}
         </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-t from-[#020814]/62 via-transparent to-black/5" />
         <div

@@ -102,8 +102,8 @@ export const projects: Project[] = [
     slug: "analyse-saf-virgin-atlantic-flight-100",
     tag: "Énergie / Aviation durable",
     title: "Analyse SAF — cas Virgin Atlantic Flight 100",
-    desc: "Étude des carburants d'aviation durables (SAF) via simulation GasTurb15, avec étude de cas sur le vol Virgin Atlantic Flight 100, présentée en soutenance.",
-    tools: ["GasTurb15", "SAF"],
+    desc: "Étude des carburants d'aviation durables (SAF) via simulation, avec étude de cas sur le vol Virgin Atlantic Flight 100, présentée en soutenance.",
+    tools: ["SAF"],
     details: [
       "Modélisation du cycle de combustion avec mélange de SAF et kérosène classique.",
       "Évaluation des gains CO2 et de la performance en masse de carburant.",
@@ -116,7 +116,7 @@ export const projects: Project[] = [
       },
       {
         label: "Simulation",
-        description: "Entrée des paramètres moteur dans GasTurb15 et validation des performances.",
+        description: "Entrée des paramètres moteur dans le logiciel de simulation et validation des performances.",
       },
       {
         label: "Synthèse",
@@ -275,8 +275,8 @@ const projectsEn: Record<string, ProjectTranslation> = {
   "analyse-saf-virgin-atlantic-flight-100": {
     tag: "Energy / Sustainable aviation",
     title: "SAF analysis — Virgin Atlantic Flight 100 case",
-    desc: "Study of sustainable aviation fuels (SAF) using GasTurb15, with a case study on Virgin Atlantic Flight 100, presented in oral defense.",
-    tools: ["GasTurb15", "SAF"],
+    desc: "Study of sustainable aviation fuels (SAF) using simulation, with a case study on Virgin Atlantic Flight 100, presented in oral defense.",
+    tools: ["SAF"],
     details: [
       "Modeled combustion cycle with SAF and conventional kerosene blend.",
       "Evaluated CO2 gains and fuel-mass performance impacts.",
@@ -289,7 +289,7 @@ const projectsEn: Record<string, ProjectTranslation> = {
       },
       {
         label: "Simulation",
-        description: "Entered engine parameters in GasTurb15 and validated resulting performance.",
+        description: "Entered engine parameters in the simulation software and validated resulting performance.",
       },
       {
         label: "Synthesis",

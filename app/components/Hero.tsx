@@ -98,8 +98,8 @@ export default function Hero({ headerLinks, cvLink }: HeroProps) {
             {heroText.titlePrefix} <span className="text-accent">Alexi</span>
           </h1>
           <div
-            className="relative mt-4 max-w-xl space-y-4 text-[18px] leading-8 text-slate-200/92 sm:text-lg"
-            style={{ textShadow: "0 2px 10px rgba(0,0,0,0.42)" }}
+            className="relative mt-4 max-w-xl space-y-4 text-justify text-[18px] leading-8 text-white sm:text-lg"
+            style={{ textShadow: "0 2px 12px rgba(0,0,0,0.78), 0 0 3px rgba(0,0,0,0.52)" }}
           >
             {heroText.intro.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>

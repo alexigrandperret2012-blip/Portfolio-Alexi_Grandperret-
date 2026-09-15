@@ -1,42 +1,45 @@
 "use client";
 
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { Fragment, useState } from "react";
 import Reveal from "./components/Reveal";
+import ScrollRevealText from "./components/ScrollRevealText";
 import HomeBackground from "./components/HomeBackground";
 import Hero from "./components/Hero";
 import Counter from "./components/Counter";
 import TimelineTrack from "./components/TimelineTrack";
 import TimelineBullet from "./components/TimelineBullet";
 import LampDemo from "./components/ui/lamp-demo";
+import MarelliLampDemo from "./components/ui/marelli-lamp-demo";
+import StrateLampDemo from "./components/ui/strate-lamp-demo";
+import MfTechLampDemo from "./components/ui/mf-tech-lamp-demo";
 import ProjectFilter from "./components/ProjectFilter";
 import SkillsGrid from "./components/SkillsGrid";
 import HoverTile from "./components/HoverTile";
 import LanguageToggle from "./components/LanguageToggle";
 import FlipCard from "./components/animata/card/flip-card";
 import HighlightText from "./components/HighlightText";
-import ScrollRevealText from "./components/ScrollRevealText";
 import { GlowingEffect } from "./components/ui/glowing-effect";
 import { useLanguage } from "./components/LanguageProvider";
 import { getProjects } from "./lib/projects";
 
 const statsFr = [
   { value: 5, label: "Années de formation" },
-  { value: 4, label: "Stages réalisés" },
+  { value: 7, label: "Stages et contrats" },
   { value: 6, suffix: "+", label: "Projets techniques" },
   { value: 8, label: "Outils maîtrisés" },
 ];
 
 const statsEn = [
   { value: 5, label: "Years of training" },
-  { value: 4, label: "Internships completed" },
+  { value: 7, label: "Internships and contracts" },
   { value: 6, suffix: "+", label: "Technical projects" },
   { value: 8, label: "Tools mastered" },
 ];
 
 const skillsFr = [
-  { title: "Calcul & simulation", items: ["MATLAB", "Simulink", "Python", "GasTurb15", "VBA"] },
+  { title: "Calcul & simulation", items: ["MATLAB", "Simulink", "Python", "VBA"] },
   {
     title: "CAO & simulation numérique",
     items: ["CATIA", "SolidWorks", "ANSYS", "STAR-CCM+", "Patran/Nastran", "Bambu Lab"],
@@ -57,7 +60,7 @@ const skillsFr = [
 ];
 
 const skillsEn = [
-  { title: "Computation & simulation", items: ["MATLAB", "Simulink", "Python", "GasTurb15", "VBA"] },
+  { title: "Computation & simulation", items: ["MATLAB", "Simulink", "Python", "VBA"] },
   {
     title: "CAD & numerical simulation",
     items: ["CATIA", "SolidWorks", "ANSYS", "STAR-CCM+", "Patran/Nastran", "Bambu Lab"],
@@ -106,35 +109,35 @@ const timelineFr = [
     duration: "Juin — Septembre",
     title: "Assistant Directeur et projet d’industrialisation ingénieur",
     org: "Gruau — site d'Argentan",
-    desc: "Rattaché directement au directeur de site, j'ai suivi les grands équilibres de pilotage d'une PME industrielle au sein d'un grand groupe : comités exécutifs, suivi de production, gestion des commandes et pilotage de la performance. En parallèle, une étude thermique, thermodynamique et CFD poussée sur un caisson réfrigérant m'a permis de mener une étude sur le cycle de transformation du fluide, ainsi qu'une étude sur le comportement de l'air à l'intérieur du caisson. Cela m'a permis d'identifier un fluide réfrigérant de remplacement et d'adapter les composants en conséquence. À cela s'ajoute la création de gammes de fabrication pour pérenniser et automatiser la production d'un produit, ainsi que l'application du 5S et d'autres outils du Lean manufacturing. Une expérience qui allie responsabilité exécutive, vision stratégique et projet d'ingénierie, au service de la performance industrielle.",
+    desc: "Rattaché directement au directeur de site, j'ai suivi les équilibres de pilotage d'une PME industrielle au sein d'un grand groupe : comités exécutifs, suivi de production, observation de gestion, des commandes et pilotage de la performance. En parallèle, une étude thermique, thermodynamique et CFD poussée sur un caisson réfrigérant m'a permis de mener une étude sur le cycle de transformation du fluide, ainsi qu'une étude sur le comportement de l'air à l'intérieur du caisson. Cela m'a permis d'identifier un fluide réfrigérant de remplacement et d'adapter les composants en conséquence. À cela s'ajoute la création de gammes de fabrication pour pérenniser et automatiser la production d'un produit, ainsi que l'application du 5S et d'autres outils du Lean manufacturing. Une expérience qui allie responsabilité exécutive, vision stratégique et projet d'ingénierie, au service de la performance industrielle.",
   },
   {
     year: "2024",
-    duration: "Juin — Juillet",
+    duration: "2 mois",
     title: "Process & production",
     org: "Strate Composites",
-    desc: "Au sein de l'équipe Process & Production de Strate Composites, j'ai contribué à la modernisation des équipements et au suivi de la production sur des procédés composites. J'ai conçu un système de préhension par ventouse pour le démoulage et la manutention sécurisée de pièces lourdes, développé des chariots de transport pour fluidifier les flux, et rédigé des instructions de travail pour standardiser la fabrication. Mes interventions chez plusieurs clients industriels et ma participation aux réunions de conception produit m'ont également donné une vision transversale de la rentabilité des produits et de leur contribution à la performance financière de l'entreprise. Une expérience alliant amélioration continue, ingénierie de production et vision client.",
+    desc: "Ce stage m'a donné une vraie marge de manœuvre pour proposer des améliorations concrètes sur l'efficacité et l'organisation de la production du site. J'ai pu introduire des outils numériques et physiques qui ont directement amélioré le fonctionnement de la production, comme un système de préhension par ventouse pour manipuler en sécurité des pièces composites lourdes, ou des chariots de transport pour fluidifier les flux entre zones. Au-delà du terrain, ma participation aux réunions de conception produit et mes échanges directs avec les clients — parfois jusqu'à la négociation — m'ont donné une vision transversale : comprendre non seulement comment un produit est fabriqué, mais aussi ce qu'il coûte et ce qu'il rapporte.",
   },
   {
     year: "2023",
-    duration: "2 mois",
-    title: "Quality Control Specialist",
+    duration: "Juin — Juillet",
+    title: "Responsable Contrôle Qualité",
     org: "Marelli",
-    desc: "Premier grand pas dans une entreprise internationale, cette expérience chez Marelli a été l'occasion de mesurer ce que signifie la qualité à l'échelle d'un grand groupe. J'ai supervisé les opérations d'inspection en ligne pour garantir la conformité des produits en temps réel, et mené plusieurs investigations 5D/8D en m'appuyant sur des méthodologies telles que les 5 Pourquoi, Ishikawa, Gemba Walks et Kaizen pour remonter aux causes racines des non-conformités et optimiser les flux de production. Ce travail, mené en collaboration étroite avec les équipes ingénierie et production, m'a appris la rigueur nécessaire pour contribuer à la satisfaction client et à la réputation de Marelli comme fournisseur automobile de référence à l'échelle mondiale.",
+    desc: "Rattaché à l'équipe qualité en tant que Contrôleur Qualité, j'ai assuré les tests et la réception des produits, avec la responsabilité d'une petite équipe. J'ai appliqué au quotidien les outils du Lean Manufacturing (5S, contrôle en ligne, suivi de conformité) pour garantir la qualité livrée aux clients. En parallèle, j'ai assisté pour la première fois à des réunions de service et de direction de site, suivant ainsi la manière dont les décisions circulent entre production et direction. Les échanges directs avec les clients sont venus compléter cette immersion dans le fonctionnement d'une ligne de production. Une expérience qui allie responsabilité d'équipe, rigueur qualité et premier contact avec le pilotage industriel.",
   },
   {
     year: "2021",
     duration: "1 mois",
     title: "Fabrication composite",
     org: "MF-Tech",
-    desc: "Production par enroulement filamentaire (filament winding) sur pièces composites.",
+    desc: "Pendant ce stage, j'ai suivi de près le travail d'un technicien sur des projets d'enroulement filamentaire et de prototypage de pièces composites fabriquées par des robots. Ça m'a fait découvrir un métier que je connaissais peu : tout le savoir-faire et la charge de travail que représente le rôle de technicien dans l'industrie du carbone. J'ai aussi participé aux projets R&D de l'équipe, en aidant à mettre en place les technologies d'enroulement robotisé pour produire des prototypes de formes complexes. J'en garde surtout l'apprentissage du pilotage des robots, et l'habitude de documenter chaque étape avec rigueur pour que le travail serve à la suite du projet.",
   },
   {
     year: "2017",
     duration: "1 mois",
     title: "Stage d'observation",
     org: "CEA Paris-Saclay",
-    desc: "Observation des processus expérimentaux et des protocoles de recherche en laboratoire. Découverte des méthodologies scientifiques et de l'analyse de données dans un environnement de recherche de pointe.",
+    desc: "Ce stage a été ma toute première rencontre avec le monde de la science. Au CEA Paris-Saclay, j'ai pu observer des expériences et des protocoles de recherche dans un environnement scientifique de pointe, et participer à des sessions où des chercheurs expliquaient leurs méthodes et leurs outils. C'est cette immersion, très jeune, qui m'a convaincu de vouloir poursuivre des études scientifiques — un choix qui m'a mené, quelques années plus tard, vers l'ingénierie.",
   },
 ];
 
@@ -196,34 +199,38 @@ const persoFr = [
   {
     title: "Le sport",
     desc: [
-      "Le sport a toujours été un pilier essentiel dans mon équilibre. Il m'a appris à rester discipliné, à être régulier et à aller au bout de ce que je commence. ",
-      "Le sport m'a formé à la persévérance, à l'effort et au travail d'équipe.",
+      "Le sport a toujours été un pilier essentiel de mon équilibre. Il m'a appris à rester discipliné et à motiver mes coéquipiers pour atteindre nos objectifs communs. Les sports individuels que j'ai pratiqués m'attirent pour une autre raison : leur exigence envers soi-même. L'erreur vient de nous, et le combat que l'on mène est avant tout un combat contre soi-même.",
+      <br key="perso-fr-sport-break-1" />,
+      <br key="perso-fr-sport-break-2" />,
+      "Tennis (6 ans), football (12 ans), kayak (3 ans), badminton (3 ans).",
     ],
-    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=85",
+    image: "/us-putanges-u-11__mxjnne.jpg",
   },
   {
-    title: "La transmission des connaissances",
+    title: "Musique",
     desc: [
-      "J'aime expliquer, faire comprendre et rendre les choses concrètes. Que ce soit dans le cadre professionnel ou autour d'un sujet qui me tient à cœur, j'aime transmettre ce que j'ai appris. ",
-      "Je prends du plaisir à faire progresser les autres en leur donnant des clés claires.",
+      "À l'âge de 4 ans, pour mon cadeau d'anniversaire, j'ai demandé des cours de piano. Toujours attiré par la musique, j'ai poursuivi pendant 12 ans, complétés par 2 ans de violon, et eu l'occasion de me produire lors de plusieurs concerts. Tout comme le sport, la musique a été un échappatoire et un moyen de m'exprimer autrement que par les mots. Elle m'a apporté une rigueur différente de celle de l'ingénierie ou du sport — celle de la précision et de la sensibilité.",
+      <br key="perso-fr-musique-break-1" />,
+      <br key="perso-fr-musique-break-2" />,
+      "Piano (12 ans), violon (2 ans), orchestre (3 ans), musique de chambre (1 an).",
     ],
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=85",
+    image: "",
   },
   {
-    title: "L'accompagnement et la pédagogie",
+    title: "L'aéronautique et le spatial",
     desc: [
-      "J'ai toujours eu envie d'accompagner les gens, de les guider et de les aider à progresser dans des situations concrètes. J'aime m'adapter au niveau et au profil de chacun pour expliquer autrement. ",
-      "Aider les autres à avancer est pour moi à la fois une satisfaction et une vraie compétence.",
+      "L'aéronautique et le spatial nourrissent ma curiosité et mon envie d'explorer ce qui reste encore à comprendre. J'aime suivre les avancées technologiques de l'homme, depuis la conception des systèmes jusqu'aux missions qui repoussent les limites du possible. ",
+      "Cette fascination me pousse à apprendre, à questionner les solutions existantes et à imaginer les prochaines étapes de l'exploration.",
     ],
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=85",
+    image: "/NASAlaunch.jpg",
   },
   {
-    title: "L'apprentissage constant",
+    title: "La transmission et l'aide aux autres",
     desc: [
-      "J'aime l'envie d'apprendre, la curiosité, et le fait d'aller plus loin dans la compréhension. C'est ce qui me pousse à chercher, à comprendre et à m'améliorer sans cesse. ",
-      "L'apprentissage n'est pas une fin, c'est une manière de vivre et de progresser.",
+      "Depuis plusieurs années, je donne des cours particuliers de mathématiques pendant les vacances d'été. Cette expérience m'a appris à transmettre mes connaissances, à m'adapter au niveau de chacun et à expliquer les notions de différentes manières. ",
+      "J'aime aider les autres à progresser, que ce soit dans leurs études, leurs projets ou les difficultés qu'ils peuvent rencontrer.",
     ],
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=85",
+    image: "/img-1568-960x622.jpg",
   },
 ];
 
@@ -267,8 +274,8 @@ const contactsFr = [
   { label: "Téléphone", value: "+33 6 82 45 61 80" },
   { label: "LinkedIn", value: "https://www.linkedin.com/in/alexi0" },
   { label: "GitHub", value: "https://fredetrickspace.wixsite.com/aegis" },
-  { label: "CV — Français", value: "/Grandperret_Alexi_CV_fr.pdf" },
-  { label: "CV — English", value: "/Grandperret_Alexi_CV_English.pdf" },
+  { label: "CV — Français", value: "/CV_Grandperret_Alexi.pdf" },
+  { label: "CV — English", value: "/CV_Grandperret_Alexi_EN.pdf" },
 ];
 
 const contactsEn = [
@@ -276,8 +283,8 @@ const contactsEn = [
   { label: "Phone", value: "+33 6 82 45 61 80" },
   { label: "LinkedIn", value: "https://www.linkedin.com/in/alexi0" },
   { label: "GitHub", value: "https://fredetrickspace.wixsite.com/aegis" },
-  { label: "CV — French", value: "/Grandperret_Alexi_CV_fr.pdf" },
-  { label: "CV — English", value: "/Grandperret_Alexi_CV_English.pdf" },
+  { label: "CV — French", value: "/CV_Grandperret_Alexi.pdf" },
+  { label: "CV — English", value: "/CV_Grandperret_Alexi_EN.pdf" },
 ];
 
 const isValidLink = (value: string) => Boolean(value && !value.startsWith("["));
@@ -349,6 +356,7 @@ const headerLinks = socialLinks.filter((item) => ["LinkedIn", "GitHub", "Email"]
 export default function Home() {
   const { lang } = useLanguage();
   const [hoveredInterest, setHoveredInterest] = useState<string | null>(null);
+  const [emailCopied, setEmailCopied] = useState(false);
   const stats = lang === "fr" ? statsFr : statsEn;
   const skills = lang === "fr" ? skillsFr : skillsEn;
   const timeline = lang === "fr" ? timelineFr : timelineEn;
@@ -358,6 +366,11 @@ export default function Home() {
     ? contactsFr.find((item) => item.label === "CV — Français")
     : contactsEn.find((item) => item.label === "CV — English");
   const cvLink = contactHref(cvContact ?? { label: "CV", value: "" });
+  const copyEmail = async () => {
+    await navigator.clipboard.writeText("alexi.grandperret@ipsa.fr");
+    setEmailCopied(true);
+    window.setTimeout(() => setEmailCopied(false), 1800);
+  };
   const projects = getProjects(lang);
   const navText = {
     professionalTop: lang === "fr" ? "Professionnel" : "Professional",
@@ -505,6 +518,12 @@ export default function Home() {
             href="/#top"
             aria-label="Alexi Grandperret - Accueil"
             className="flex items-center gap-2.5 font-display text-[15px] font-semibold tracking-wide text-metal-light"
+            onClick={(event) => {
+              if (window.location.pathname === "/") {
+                event.preventDefault();
+                window.dispatchEvent(new Event("project-page-open"));
+              }
+            }}
           >
             <span className="h-2.5 w-2.5 rotate-45 bg-accent" />
             ALEXI&nbsp;GRANDPERRET
@@ -576,7 +595,7 @@ export default function Home() {
           </Reveal>
           <div className="grid grid-cols-1 gap-14 md:grid-cols-[1.3fr_1fr]">
             <motion.div
-              className="relative space-y-6 border-l border-accent/20 pl-5 text-[15.5px] leading-8 text-text-dim"
+              className="relative space-y-6 border-l border-accent/20 pl-5 text-justify text-[15.5px] leading-8 text-text-dim"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
@@ -687,9 +706,17 @@ export default function Home() {
         </div>
 
       {/* PARCOURS */}
-      <section id="parcours" className="border-b border-border py-24 scroll-smooth">
+      <section id="parcours" className="relative isolate overflow-hidden border-b border-border py-24 scroll-smooth">
+        <motion.div
+          className="pointer-events-none absolute bottom-0 left-1/2 z-0 h-[150vh] w-screen -translate-x-1/2 bg-cover bg-center bg-no-repeat opacity-55"
+          initial={{ opacity: 0, scale: 1.1, y: 28 }}
+          whileInView={{ opacity: 0.55, scale: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 1.35, ease: [0.22, 1, 0.36, 1] }}
+          style={{ backgroundImage: "linear-gradient(to bottom, rgba(2,8,20,0.92), rgba(2,8,20,0.18) 38%, rgba(2,8,20,0.72)), url('/Spacex.jpg')" }}
+        />
 
-        <div className="mx-auto max-w-[1100px] px-6">
+        <div className="relative z-10 mx-auto max-w-[1100px] px-6">
           <div className="mb-12">
             <Reveal delay={0.02} repeat>
               <div className="mb-2.5 font-mono text-sm tracking-widest text-accent">
@@ -747,16 +774,15 @@ export default function Home() {
                     <Reveal className="mt-1 text-[13px] text-text-faint" repeat>
                       {tItem.org}
                     </Reveal>
-                    {Array.isArray(tItem.desc) ? (
-                      <ScrollRevealText className={`timeline-desc mt-4 ${i === 1 || i === 2 || i === 3 ? "max-w-3xl" : "max-w-xl"} text-[14.5px] leading-7`}>
+                    <Reveal className={`timeline-desc mt-4 ${i === 1 || i === 2 || i === 3 || i === 4 || i === 5 ? "max-w-3xl" : "max-w-xl"} text-justify text-[14.5px] leading-7`} repeat>
+                      <ScrollRevealText className="whitespace-pre-line">
                         {tItem.desc}
                       </ScrollRevealText>
-                    ) : (
-                      <Reveal className={`timeline-desc mt-4 ${i === 1 || i === 2 || i === 3 ? "max-w-3xl" : "max-w-xl"} text-[14.5px] leading-7`} repeat>
-                        {tItem.desc}
-                      </Reveal>
-                    )}
+                    </Reveal>
                     {i === 1 ? <LampDemo /> : null}
+                    {i === 2 ? <StrateLampDemo /> : null}
+                    {i === 3 ? <MarelliLampDemo /> : null}
+                    {i === 4 ? <MfTechLampDemo /> : null}
                   </div>
                 </div>
               </Reveal>
@@ -812,7 +838,19 @@ export default function Home() {
       </section>
 
       <section id="perso" className="relative isolate overflow-hidden border-b border-border py-24">
-        {perso.map((entry) => entry.title === hoveredInterest ? <div key={entry.title} className="absolute inset-0 -z-10 bg-cover bg-center" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.9)), url('${entry.image}')` }} /> : null)}
+        <AnimatePresence initial={false}>
+          {perso.map((entry) => entry.title === hoveredInterest ? (
+            <motion.div
+              key={entry.title}
+              className="absolute inset-0 -z-10 bg-cover bg-center"
+              style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, ${entry.title === "Le sport" ? "0.7" : "0.58"}), rgba(0, 0, 0, ${entry.title === "Le sport" ? "0.8" : "0.7"})), url('${entry.image}')` }}
+              initial={{ opacity: 0, scale: 1.04 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.02 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            />
+          ) : null)}
+        </AnimatePresence>
         <div className="relative mx-auto max-w-[1100px] px-8">
           <Reveal className="mb-12">
             <div className="mb-2.5 font-mono text-sm tracking-widest text-accent">
@@ -844,8 +882,18 @@ export default function Home() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="py-24">
-        <div className="mx-auto max-w-[1100px] px-8">
+      <section id="contact" className="relative isolate overflow-hidden py-24">
+        <video
+          className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-65"
+          src="/NASAVID.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+        />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-black/25" />
+        <div className="relative mx-auto max-w-[1100px] px-8">
           <Reveal className="mb-12">
             <div className="mb-2.5 font-mono text-sm tracking-widest text-accent">
               {navText.contactLabel}
@@ -859,7 +907,18 @@ export default function Home() {
           </Reveal>
           <div className="mt-10 flex flex-wrap items-center gap-3">
             {socialLinks.map((item) =>
-              item.href ? (
+              item.label === "Email" ? (
+                <button
+                  key={item.label}
+                  type="button"
+                  onClick={copyEmail}
+                  className="liquid-button liquid-button--circle inline-flex h-11 w-11 items-center justify-center rounded-full border border-accent/30 bg-bg-panel text-metal-light"
+                  style={{ "--liquid-color": "#4169e1" } as React.CSSProperties}
+                  aria-label="Copier l'email"
+                >
+                  {item.icon}
+                </button>
+              ) : item.href ? (
                 <a
                   key={item.label}
                   href={item.href}
@@ -873,14 +932,15 @@ export default function Home() {
                 </a>
               ) : null
             )}
+            {emailCopied ? <span className="text-sm text-metal-light">Email copié dans le presse-papiers</span> : null}
           </div>
-          <Reveal className="grid grid-cols-1 gap-px border border-border bg-border sm:grid-cols-2 mt-10">
+          <Reveal className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-blue-300/25 bg-transparent shadow-[0_0_28px_rgba(59,130,246,0.16),0_24px_80px_rgba(0,0,0,0.2)] backdrop-blur-sm sm:grid-cols-2">
             {contacts.map((c) => {
               const href = contactHref(c);
               const tile = (
                 <HoverTile
                   key={c.label}
-                  className={`bg-bg-panel-2 p-6 px-7 transition ${href ? "cursor-pointer hover:bg-bg-panel" : ""}`}
+                  className={`bg-transparent p-6 px-7 shadow-[inset_0_0_26px_rgba(59,130,246,0.12)] backdrop-blur-0 transition-all duration-300 ${href ? "cursor-pointer hover:bg-white/[0.03] hover:shadow-[inset_0_0_30px_rgba(59,130,246,0.2)]" : ""}`}
                 >
                   <div className="mb-2 font-mono text-[11px] uppercase tracking-wide text-text-faint">
                     {c.label}
@@ -897,21 +957,21 @@ export default function Home() {
                 tile
               );
             })}
-            <HoverTile className="bg-bg-panel-2 p-6 px-7 transition hover:bg-bg-panel">
+            <HoverTile className="bg-transparent p-6 px-7 shadow-[inset_0_0_26px_rgba(59,130,246,0.12)] backdrop-blur-0 transition-all duration-300 hover:bg-white/[0.03] hover:shadow-[inset_0_0_30px_rgba(59,130,246,0.2)]">
               <div className="mb-2 font-mono text-[11px] uppercase tracking-wide text-text-faint">{navText.profileFacts.base}</div>
               <div className="text-metal-light">{navText.profileFacts.baseVal}</div>
             </HoverTile>
-            <HoverTile className="bg-bg-panel-2 p-6 px-7 transition hover:bg-bg-panel">
+            <HoverTile className="bg-transparent p-6 px-7 shadow-[inset_0_0_26px_rgba(59,130,246,0.12)] backdrop-blur-0 transition-all duration-300 hover:bg-white/[0.03] hover:shadow-[inset_0_0_30px_rgba(59,130,246,0.2)]">
               <div className="mb-2 font-mono text-[11px] uppercase tracking-wide text-text-faint">{navText.profileFacts.formation}</div>
               <div className="text-metal-light">{navText.profileFacts.formationVal}</div>
             </HoverTile>
           </Reveal>
         </div>
-      </section>
 
-      <footer className="py-9 text-center font-mono text-xs text-text-faint">
+      <footer className="relative z-10 py-9 text-center font-mono text-xs text-text-faint">
         © 2026 Alexi Grandperret
       </footer>
+      </section>
       </div>
     </>
   );

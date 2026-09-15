@@ -28,7 +28,7 @@ export default function SmoothScroll() {
       rafId = window.requestAnimationFrame(raf);
     };
 
-    const scrollToTop = () => lenis.scrollTo(0, { immediate: true, force: true });
+    const scrollToTop = () => lenis.scrollTo(0, { duration: 0.9, force: true });
 
     rafId = window.requestAnimationFrame(raf);
     window.addEventListener("project-page-open", scrollToTop);

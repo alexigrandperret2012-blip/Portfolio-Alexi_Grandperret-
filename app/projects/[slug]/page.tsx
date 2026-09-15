@@ -316,6 +316,122 @@ function AerospikeProjectPage({ lang }: { lang: "fr" | "en" }) {
   </main>;
 }
 
+function SafProjectPage({ lang }: { lang: "fr" | "en" }) {
+  const fr = lang === "fr";
+  const back = fr ? "Retour aux projets" : "Back to projects";
+  const report = "/SAF/En426_BUSOLINI_CORDOBA_GRANDPERRET_HASEGAWA%20(1).pdf";
+  return (
+    <main className="min-h-screen overflow-x-clip bg-bg text-text">
+      <header className="halo-nav-blend sticky top-0 z-50">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 sm:px-10 lg:px-12">
+          <HoverBorderGradient href="/#projets"><ArrowLeft className="size-4" aria-hidden="true" />{back}</HoverBorderGradient>
+          <LanguageToggle />
+        </div>
+      </header>
+
+      <section className="border-b border-border bg-bg-panel-2">
+        <div className="mx-auto max-w-5xl px-6 pb-20 pt-16 sm:px-10 lg:px-12 lg:pb-28">
+          <p className="font-mono text-xs uppercase tracking-[0.34em] text-accent">Energy / Sustainable aviation</p>
+          <h1 className="mt-5 max-w-4xl font-display text-4xl font-semibold leading-[1.05] text-metal-light sm:text-6xl">
+            {fr ? "Comprendre ce que les carburants durables changent réellement." : "Understanding what sustainable aviation fuels really change."}
+          </h1>
+          <p className="mt-7 max-w-3xl text-lg leading-8 text-text-dim">
+            {fr
+              ? "Cette étude s'intéresse aux carburants d'aviation durables à travers un cas concret : le vol Virgin Atlantic Flight 100. L'objectif n'est pas seulement de comparer deux carburants, mais de comprendre les conséquences techniques, environnementales et opérationnelles de leur utilisation."
+              : "This study examines sustainable aviation fuels through a concrete case: Virgin Atlantic Flight 100. The goal is not only to compare two fuels, but to understand the technical, environmental, and operational consequences of using them."}
+          </p>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <a href={report} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-accent px-4 py-3 font-mono text-xs uppercase tracking-wide text-white transition hover:bg-[#557cf0]">
+              <Download className="size-4" aria-hidden="true" />
+              {fr ? "Lire le rapport complet" : "Read the full report"}
+            </a>
+            <a href="#question" className="inline-flex items-center gap-2 border border-border px-4 py-3 font-mono text-xs uppercase tracking-wide text-metal-light transition hover:border-metal hover:text-white">
+              {fr ? "Découvrir l'étude" : "Explore the study"}
+              <ArrowUpRight className="size-4" aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="question" className="mx-auto max-w-5xl px-6 py-16 sm:px-10 lg:px-12 lg:py-24">
+        <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr]">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-accent">01 / {fr ? "La question" : "The question"}</p>
+            <h2 className="mt-4 font-display text-3xl font-semibold text-metal-light">{fr ? "Un carburant peut-il être plus durable sans déplacer le problème ?" : "Can a fuel be more sustainable without moving the problem elsewhere?"}</h2>
+          </div>
+          <div className="space-y-6 text-base leading-8 text-text-dim">
+            <p>{fr ? "Le SAF regroupe plusieurs familles de carburants capables de réduire l'empreinte carbone du transport aérien, notamment lorsqu'ils sont produits à partir de ressources non fossiles. Mais cette promesse doit être replacée dans une chaîne complète : origine de la matière première, fabrication, compatibilité avec les moteurs, disponibilité et bilan environnemental global." : "SAF covers several fuel families that can reduce aviation's carbon footprint, especially when produced from non-fossil resources. That promise must still be considered across the full chain: feedstock origin, production, engine compatibility, availability, and the overall environmental balance."}</p>
+            <p>{fr ? "Le cas du vol étudié sert donc de fil conducteur. Il permet de partir d'une situation réelle et de poser une question simple : que gagne-t-on, que conserve-t-on et quelles contraintes apparaissent lorsque le kérosène classique est remplacé, en partie, par du SAF ?" : "The studied flight provides the thread of the investigation. It starts from a real situation and asks a simple question: what is gained, what remains unchanged, and what constraints appear when conventional kerosene is partly replaced by SAF?"}</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-border bg-bg-panel-2">
+        <div className="mx-auto max-w-5xl px-6 py-16 sm:px-10 lg:px-12 lg:py-24">
+          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+            <div>
+              <p className="font-mono text-xs uppercase tracking-[0.3em] text-accent">02 / {fr ? "Démarche" : "Approach"}</p>
+              <h2 className="mt-4 font-display text-3xl font-semibold text-metal-light">{fr ? "Une lecture par le cycle, puis par les conséquences." : "A reading of the cycle, then of its consequences."}</h2>
+              <div className="mt-6 space-y-6 text-base leading-8 text-text-dim">
+                <p>{fr ? "L'étude commence par la modélisation du cycle de combustion et par la comparaison d'un mélange de SAF et de kérosène classique. Cette étape permet de suivre l'influence du carburant sur les paramètres de fonctionnement et sur la masse nécessaire pour réaliser le vol étudié." : "The study begins by modeling the combustion cycle and comparing a SAF and conventional-kerosene blend. This makes it possible to follow the fuel's influence on operating parameters and on the mass required for the studied flight."}</p>
+                <p>{fr ? "Les résultats ne sont ensuite pas lus comme une performance isolée. Ils sont mis en regard des émissions de CO2, des contraintes d'utilisation sur des motorisations existantes et des conditions nécessaires à un déploiement réaliste. Cette approche rapproche le calcul de la décision industrielle et de la recherche appliquée." : "The results are not read as an isolated performance figure. They are considered alongside CO2 emissions, operating constraints on existing engines, and the conditions required for realistic deployment. This approach connects computation to industrial decision-making and applied research."}</p>
+              </div>
+            </div>
+            <figure className="border border-border bg-bg p-3">
+              <img src="/SAF/image%20(7).png" alt={fr ? "Extrait visuel de l'étude sur les carburants durables" : "Visual excerpt from the sustainable-fuel study"} className="w-full" />
+              <figcaption className="border-t border-border px-2 pt-3 text-sm leading-6 text-text-dim">{fr ? "Une étude située entre modélisation, aviation et transition énergétique." : "A study positioned between modeling, aviation, and the energy transition."}</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-6 py-16 sm:px-10 lg:px-12 lg:py-24">
+        <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr]">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-accent">03 / {fr ? "Ce que l'étude montre" : "What the study shows"}</p>
+            <h2 className="mt-4 font-display text-3xl font-semibold text-metal-light">{fr ? "Une transition qui demande une vision d'ensemble." : "A transition that requires a whole-system view."}</h2>
+          </div>
+          <div className="space-y-6 text-base leading-8 text-text-dim">
+            <p>{fr ? "Le SAF apparaît comme un levier crédible de réduction des émissions, mais son intérêt ne peut pas être résumé à un seul chiffre. Le résultat dépend du carburant choisi, de sa fabrication, de son intégration dans le cycle et de la possibilité de l'utiliser sur une flotte existante." : "SAF appears to be a credible lever for reducing emissions, but its value cannot be reduced to a single number. The result depends on the selected fuel, how it is produced, how it integrates into the cycle, and whether it can be used across an existing fleet."}</p>
+            <p>{fr ? "Ce travail m'a surtout permis de comprendre la place du chercheur face à un sujet de transition : produire des résultats compréhensibles, identifier leurs limites et conserver une distance critique entre une promesse technologique et les conditions de sa mise en œuvre." : "This work mainly helped me understand the researcher's role in a transition topic: produce understandable results, identify their limits, and keep a critical distance between a technological promise and the conditions required to implement it."}</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-6 py-16 sm:px-10 lg:px-12 lg:py-24">
+        <div className="border-y border-border py-12 lg:grid lg:grid-cols-[0.72fr_1.28fr] lg:gap-12">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-accent">04 / {fr ? "Conclusion" : "Conclusion"}</p>
+            <h2 className="mt-4 font-display text-3xl font-semibold text-metal-light">{fr ? "Une transition à observer avec méthode." : "A transition to examine carefully."}</h2>
+          </div>
+          <p className="mt-6 text-base leading-8 text-text-dim lg:mt-0">{fr ? "L'étude du vol Virgin Atlantic Flight 100 montre que le SAF constitue une piste sérieuse pour réduire l'impact de l'aviation, mais qu'il ne peut pas être considéré comme une réponse isolée. Sa pertinence dépend de la manière dont il est produit, intégré aux motorisations existantes et déployé à grande échelle. Ce projet m'a appris à dépasser le résultat numérique pour replacer une solution technique dans son contexte industriel, environnemental et humain." : "The study of Virgin Atlantic Flight 100 shows that SAF is a serious path toward reducing aviation's impact, but it cannot be treated as an isolated answer. Its relevance depends on how it is produced, integrated into existing engines, and deployed at scale. This project taught me to move beyond a numerical result and place a technical solution within its industrial, environmental, and human context."}</p>
+        </div>
+      </section>
+
+      <section className="border-y border-border bg-bg-panel-2">
+        <div className="mx-auto max-w-5xl px-6 py-16 sm:px-10 lg:px-12 lg:py-24">
+          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <figure className="border border-border bg-bg p-3">
+              <img src="/SAF/image%20(9).png" alt={fr ? "Graphique issu de l'étude SAF" : "Chart from the SAF study"} className="w-full" />
+              <figcaption className="border-t border-border px-2 pt-3 text-sm leading-6 text-text-dim">{fr ? "Les résultats prennent leur sens lorsqu'ils sont reliés au contexte du vol et aux contraintes du système." : "Results become meaningful when connected to the flight context and system constraints."}</figcaption>
+            </figure>
+            <div>
+              <p className="font-mono text-xs uppercase tracking-[0.3em] text-accent">05 / {fr ? "Ouverture" : "Outlook"}</p>
+              <h2 className="mt-4 font-display text-3xl font-semibold text-metal-light">{fr ? "De la simulation à la décision." : "From simulation to decision-making."}</h2>
+              <p className="mt-6 text-base leading-8 text-text-dim">{fr ? "L'intérêt de ce projet est finalement moins de produire une solution définitive que de construire un cadre de réflexion. En reliant les résultats de simulation aux enjeux de production, de certification et de disponibilité, l'analyse ouvre la voie à une recherche plus large sur les conditions réelles de décarbonation de l'aviation." : "The value of this project lies less in producing a definitive solution than in building a framework for thinking. By connecting simulation results with production, certification, and availability concerns, the analysis opens a broader research path into the real conditions for decarbonizing aviation."}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-6 px-6 py-12 sm:flex-row sm:items-center sm:px-10 lg:px-12">
+        <p className="max-w-xl text-sm leading-6 text-text-dim">{fr ? "Projet réalisé autour de l'analyse des carburants d'aviation durables et du cas Virgin Atlantic Flight 100." : "Project focused on sustainable aviation fuels and the Virgin Atlantic Flight 100 case."}</p>
+        <HoverBorderGradient href="/#projets"><ArrowLeft className="size-4" aria-hidden="true" />{back}</HoverBorderGradient>
+      </footer>
+    </main>
+  );
+}
+
 export default function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
   const { lang } = useLanguage();
@@ -344,6 +460,10 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
 
   if (slug === "conception-tuyere-aerospike") {
     return <AerospikeProjectPage lang={lang} />;
+  }
+
+  if (slug === "analyse-saf-virgin-atlantic-flight-100") {
+    return <SafProjectPage lang={lang} />;
   }
 
   return (
