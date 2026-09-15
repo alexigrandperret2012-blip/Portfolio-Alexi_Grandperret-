@@ -191,8 +191,8 @@ function LavalProjectPage({ lang }: { lang: "fr" | "en" }) {
 function DroneProjectPage({ lang }: { lang: "fr" | "en" }) {
   const fr = lang === "fr";
   const attribution = {
-    fr: "Projet réalisé dans le cadre du module d'automatique et de commande — MATLAB/Simulink, IPSA Toulouse, 2025/2026.",
-    en: "Project completed as part of the automatic control module — MATLAB/Simulink, IPSA Toulouse, 2025/2026.",
+    fr: "Projet réalisé avec Hugo Busolini et Pierre Gautron dans le cadre du module AU324 — Modélisation et analyse dynamique des aéronefs, IPSA Toulouse, 2024/2025.",
+    en: "Project completed with Hugo Busolini and Pierre Gautron for AU324 — Aircraft modeling and dynamic analysis, IPSA Toulouse, 2024/2025.",
   };
   const stats: { Icon: LucideIcon; value: string; label: string }[] = [
     { Icon: Bot, value: "4", label: fr ? "moteurs pilotés" : "controlled motors" },
@@ -251,8 +251,8 @@ function DroneProjectPage({ lang }: { lang: "fr" | "en" }) {
 function RocketProjectPage({ lang }: { lang: "fr" | "en" }) {
   const fr = lang === "fr";
   const attribution = {
-    fr: "Projet réalisé avec Fatima dans le cadre du module d'option propulsion — ASTRAF, IPSA Toulouse, 2025/2026.",
-    en: "Project completed with Fatima as part of the propulsion elective module — ASTRAF, IPSA Toulouse, 2025/2026.",
+    fr: "Projet réalisé avec Fatima-Ezzahrae Chaari dans le cadre du module électif fusée — Projet ASTRAF, IPSA Toulouse, 2025/2026.",
+    en: "Project completed with Fatima-Ezzahrae Chaari as part of the rocket elective module — ASTRAF project, IPSA Toulouse, 2025/2026.",
   };
   const stats: { Icon: LucideIcon; value: string; label: string }[] = [
     { Icon: Gauge, value: "60-65 m", label: fr ? "apogée mesurée" : "measured apogee" },
@@ -311,8 +311,8 @@ function RocketProjectPage({ lang }: { lang: "fr" | "en" }) {
 function AerospikeProjectPage({ lang }: { lang: "fr" | "en" }) {
   const fr = lang === "fr";
   const attribution = {
-    fr: "Projet réalisé avec Hugo Busolini, Cordoba, Alexi Grandperret et Hasegawa dans le cadre du module EN422 — Turbomachines, IPSA Toulouse, 2025/2026.",
-    en: "Project completed with Hugo Busolini, Cordoba, Alexi Grandperret, and Hasegawa for EN422 — Turbomachines, IPSA Toulouse, 2025/2026.",
+    fr: "Projet réalisé avec Hugo Busolini, Timothée Cordoba et Julie Hasegawa dans le cadre du module EN422 — Gas Turbine Engine, IPSA Toulouse, 2025/2026.",
+    en: "Project completed with Hugo Busolini, Timothée Cordoba, and Julie Hasegawa for EN422 — Gas Turbine Engine, IPSA Toulouse, 2025/2026.",
   };
   const stats: { Icon: LucideIcon; value: string; label: string }[] = [
     { Icon: Gauge, value: "M = 2,71", label: fr ? "Mach de sortie adapté" : "adapted exit Mach" },
@@ -335,8 +335,8 @@ function AerospikeProjectPage({ lang }: { lang: "fr" | "en" }) {
 function SafProjectPage({ lang }: { lang: "fr" | "en" }) {
   const fr = lang === "fr";
   const attribution = {
-    fr: "Projet réalisé avec Hugo Busolini, Cordoba, Alexi Grandperret et Hasegawa dans le cadre du module EN426 — Sustainable Aviation, IPSA Toulouse, 2025/2026.",
-    en: "Project completed with Hugo Busolini, Cordoba, Alexi Grandperret, and Hasegawa for EN426 — Sustainable Aviation, IPSA Toulouse, 2025/2026.",
+    fr: "Projet réalisé avec Hugo Busolini, Timothée Cordoba et Julie Hasegawa dans le cadre du module EN426 — Sustainable Aviation, IPSA Toulouse, 2025/2026.",
+    en: "Project completed with Hugo Busolini, Timothée Cordoba, and Julie Hasegawa for EN426 — Sustainable Aviation, IPSA Toulouse, 2025/2026.",
   };
   const back = fr ? "Retour aux projets" : "Back to projects";
   const report = "/SAF/En426_BUSOLINI_CORDOBA_GRANDPERRET_HASEGAWA%20(1).pdf";
