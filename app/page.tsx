@@ -113,7 +113,7 @@ const timelineFr = [
   },
   {
     year: "2024",
-    duration: "2 mois",
+    duration: "Juin-Juillet",
     title: "Process & production",
     org: "Strate Composites",
     desc: "Ce stage m'a donné une vraie marge de manœuvre pour proposer des améliorations concrètes sur l'efficacité et l'organisation de la production du site. J'ai pu introduire des outils numériques et physiques qui ont directement amélioré le fonctionnement de la production, comme un système de préhension par ventouse pour manipuler en sécurité des pièces composites lourdes, ou des chariots de transport pour fluidifier les flux entre zones. Au-delà du terrain, ma participation aux réunions de conception produit et mes échanges directs avec les clients — parfois jusqu'à la négociation — m'ont donné une vision transversale : comprendre non seulement comment un produit est fabriqué, mais aussi ce qu'il coûte et ce qu'il rapporte.",
@@ -157,7 +157,7 @@ const timelineEn = [
   },
   {
     year: "2024",
-    duration: "2 months",
+    duration: "June-July",
     title: "Process & production",
     org: "Strate Composites",
     desc: "This internship gave me genuine freedom to propose practical improvements to the site's production efficiency and organization. I introduced digital and physical tools that directly improved production operations, such as a vacuum lifting system for safely handling heavy composite parts and transport carts for streamlining flows between areas. Beyond the shop floor, participating in product design meetings and speaking directly with clients — sometimes even during negotiations — gave me a cross-functional perspective: understanding not only how a product is manufactured, but also what it costs and what it earns.",
