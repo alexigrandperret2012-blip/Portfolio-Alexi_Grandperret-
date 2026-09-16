@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useInView } from "motion/react";
 import type { MotionValue } from "motion/react";
 import { cn } from "@/app/lib/utils";
+import { useLanguage } from "@/app/components/LanguageProvider";
 
 interface MotionCarouselProps {
   slides: string[];
@@ -14,6 +15,7 @@ interface MotionCarouselProps {
 const isVideoSlide = (src: string) => /\.(mov|mp4|webm)($|\?)/i.test(src);
 
 export function MotionCarousel({ slides, className, imageFilter }: MotionCarouselProps) {
+  const { lang } = useLanguage();
   const carouselRef = useRef<HTMLDivElement>(null);
   const isVisible = useInView(carouselRef, { margin: "240px 0px", once: false });
   const [active, setActive] = useState(0);
@@ -40,12 +42,12 @@ export function MotionCarousel({ slides, className, imageFilter }: MotionCarouse
     <div className={cn("relative w-full", className)}>
       <motion.div
         ref={carouselRef}
-        className="relative mx-auto h-[14.5rem] w-full max-w-3xl overflow-hidden rounded-2xl border border-white/15 bg-[#020814]/70 shadow-[0_-24px_70px_rgba(34,211,238,0.16),0_18px_45px_rgba(0,0,0,0.32)] md:h-[18.5rem]"
+        className="relative mx-auto aspect-[4/3] w-full max-w-3xl overflow-hidden rounded-xl border border-white/15 bg-[#020814]/70 shadow-[0_-16px_44px_rgba(34,211,238,0.12),0_14px_32px_rgba(0,0,0,0.28)] sm:aspect-auto sm:h-[14.5rem] sm:rounded-2xl sm:shadow-[0_-24px_70px_rgba(34,211,238,0.16),0_18px_45px_rgba(0,0,0,0.32)] md:h-[18.5rem]"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         onFocus={() => setIsPaused(true)}
         onBlur={() => setIsPaused(false)}
-        whileHover={{ y: -8, rotateX: 1.2, rotateY: -1.2, scale: 1.012 }}
+        whileHover={{ y: -4, scale: 1.006 }}
         transition={{ type: "spring", stiffness: 180, damping: 18, mass: 0.7 }}
         style={{ transformPerspective: 1200 }}
       >
@@ -70,7 +72,7 @@ export function MotionCarousel({ slides, className, imageFilter }: MotionCarouse
             <motion.img
               key={slides[active]}
               src={slides[active]}
-              alt="Photo de l'expérience professionnelle"
+              alt={lang === "fr" ? "Photo de l'expérience professionnelle" : "Professional experience photograph"}
               className="absolute inset-0 h-full w-full object-cover contrast-[1.03] saturate-[0.96]"
               style={{ filter: imageFilter ?? "brightness(0.82) saturate(0.9)" }}
               initial={{ opacity: 0, x: 70, scale: 1.04 }}
@@ -91,16 +93,16 @@ export function MotionCarousel({ slides, className, imageFilter }: MotionCarouse
         <button
           type="button"
           onClick={() => move(-1)}
-          className="absolute left-4 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[#020814]/55 text-lg text-white/80 backdrop-blur transition hover:border-cyan-200/60 hover:text-white"
-          aria-label="Photo précédente"
+          className="absolute left-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[#020814]/65 text-lg text-white/80 backdrop-blur transition hover:border-cyan-200/60 hover:text-white sm:left-4 sm:h-9 sm:w-9"
+          aria-label={lang === "fr" ? "Photo précédente" : "Previous photo"}
         >
           ‹
         </button>
         <button
           type="button"
           onClick={() => move(1)}
-          className="absolute right-4 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[#020814]/55 text-lg text-white/80 backdrop-blur transition hover:border-cyan-200/60 hover:text-white"
-          aria-label="Photo suivante"
+          className="absolute right-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[#020814]/65 text-lg text-white/80 backdrop-blur transition hover:border-cyan-200/60 hover:text-white sm:right-4 sm:h-9 sm:w-9"
+          aria-label={lang === "fr" ? "Photo suivante" : "Next photo"}
         >
           ›
         </button>
@@ -111,7 +113,7 @@ export function MotionCarousel({ slides, className, imageFilter }: MotionCarouse
               type="button"
               onClick={() => setActive(index)}
               className={cn("h-1.5 rounded-full transition-all", index === active ? "w-6 bg-cyan-200" : "w-1.5 bg-white/45 hover:bg-white/80")}
-              aria-label={`Afficher la photo ${index + 1}`}
+              aria-label={lang === "fr" ? `Afficher la photo ${index + 1}` : `Show photo ${index + 1}`}
             />
           ))}
         </div>

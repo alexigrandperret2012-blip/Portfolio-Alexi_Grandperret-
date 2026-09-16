@@ -22,16 +22,16 @@ export default function TimelineTrack({
   const springHeight = useSpring(height, { stiffness: 90, damping: 24 });
 
   return (
-    <div ref={ref} className="relative pl-28 pb-20">
-      <div className="absolute inset-y-0 left-16 z-10 w-px bg-border" />
+    <div ref={ref} className="relative pb-14 pl-9 sm:pb-20 sm:pl-28">
+      <div className="absolute inset-y-0 left-3 z-10 w-px bg-border sm:left-16" />
       <motion.div
-        className="absolute left-16 top-0 z-10 w-[2px] rounded bg-accent"
+        className="absolute left-3 top-0 z-10 w-[2px] rounded bg-accent sm:left-16"
         style={{ height: springHeight }}
       />
 
       {/* head removed: visual movement is now conveyed by the filling line */}
       <motion.div
-        className="pointer-events-none absolute bottom-4 left-24 z-10 flex items-center gap-3"
+        className="pointer-events-none absolute bottom-3 left-7 z-10 flex items-center gap-2 sm:bottom-4 sm:left-24 sm:gap-3"
         style={{ opacity: endOpacity, scale: endScale }}
       >
         <div className="h-px w-6 bg-accent/60 rounded" />

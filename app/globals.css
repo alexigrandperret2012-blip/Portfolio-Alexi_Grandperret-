@@ -45,6 +45,12 @@ html.lenis body {
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
+  overflow-x: hidden;
+}
+
+img,
+video {
+  max-width: 100%;
 }
 
 @keyframes experience-background-drift {
@@ -707,6 +713,43 @@ body {
 
   .contact-fact-title {
     font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .contact-fact-card,
+  .contact-fact-card--language {
+    min-height: 0;
+    padding: 1rem;
+  }
+
+  .contact-fact-title {
+    margin-top: 0.8rem;
+    font-size: 1.4rem;
+  }
+
+  .contact-fact-value {
+    margin-top: 0.65rem;
+    overflow-wrap: anywhere;
+    font-size: 0.95rem;
+  }
+
+  .construction-tape {
+    min-height: 3.5rem;
+    padding: 0.7rem 0.85rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+@media (hover: none) {
+  .liquid-button:active::before {
+    opacity: 0.42;
+    transform: translateY(-10%) scale(1.15);
+  }
+
+  .hover-border-trail:hover {
+    transform: none;
   }
 }
 

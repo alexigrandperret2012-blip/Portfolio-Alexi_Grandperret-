@@ -75,12 +75,12 @@ export default function Hero({ headerLinks, cvLink }: HeroProps) {
         variants={container}
         initial="hidden"
         animate="show"
-        className="relative z-10 mx-auto grid max-w-[1100px] grid-cols-1 items-center gap-16 px-8 pt-10 pb-12 md:grid-cols-[1.3fr_0.9fr]"
+        className="relative z-10 mx-auto grid max-w-[1100px] grid-cols-1 items-center gap-10 px-4 pb-8 pt-6 sm:px-6 sm:pb-12 sm:pt-10 md:grid-cols-[1.3fr_0.9fr] md:gap-16 lg:px-8"
       >
-      <div className="space-y-8">
+      <div className="space-y-6 sm:space-y-8">
         <motion.div
           variants={item}
-          className="inline-flex items-center gap-3 rounded-full border border-accent/30 bg-[#020814]/20 px-4 py-2.5 text-[12px] font-medium uppercase tracking-[0.22em] text-white shadow-[0_6px_18px_rgba(0,0,0,0.14)] backdrop-blur-sm"
+          className="inline-flex max-w-full items-center gap-2 rounded-full border border-accent/30 bg-[#020814]/20 px-3 py-2 text-[10px] font-medium uppercase tracking-[0.16em] text-white shadow-[0_6px_18px_rgba(0,0,0,0.14)] backdrop-blur-sm sm:gap-3 sm:px-4 sm:py-2.5 sm:text-[12px] sm:tracking-[0.22em]"
         >
           {heroText.badge}
         </motion.div>
@@ -92,13 +92,13 @@ export default function Hero({ headerLinks, cvLink }: HeroProps) {
             transition={{ duration: 5.6, repeat: Infinity, ease: "easeInOut" }}
           />
           <h1
-            className="relative font-display text-5xl font-bold leading-[0.95] tracking-tight text-metal-light sm:text-6.5xl"
+            className="relative font-display text-4xl font-bold leading-[1.02] tracking-tight text-metal-light sm:text-6xl lg:text-6.5xl"
             style={{ textShadow: "0 8px 28px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.5)" }}
           >
             {heroText.titlePrefix} <span className="text-accent">Alexi</span>
           </h1>
           <div
-            className="relative mt-4 max-w-xl space-y-4 text-justify text-[18px] leading-8 text-white sm:text-lg"
+            className="relative mt-4 max-w-xl space-y-4 text-left text-[15px] leading-7 text-white sm:text-justify sm:text-lg sm:leading-8"
             style={{ textShadow: "0 2px 12px rgba(0,0,0,0.78), 0 0 3px rgba(0,0,0,0.52)" }}
           >
             {heroText.intro.map((paragraph, index) => (
@@ -106,13 +106,13 @@ export default function Hero({ headerLinks, cvLink }: HeroProps) {
             ))}
           </div>
         </motion.div>
-        <motion.div variants={item} className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <motion.div variants={item} className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
           <div className="flex flex-wrap items-center gap-3">
             <a
               href={cvLink ?? "#contact"}
               target={cvLink ? "_blank" : undefined}
               rel={cvLink ? "noreferrer" : undefined}
-              className="liquid-button group inline-flex items-center gap-2 rounded-full border border-accent bg-black px-6 py-3 text-sm font-semibold uppercase tracking-[0.24em] text-accent"
+              className="liquid-button group inline-flex min-h-11 items-center gap-2 rounded-full border border-accent bg-black px-5 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent sm:px-6 sm:text-sm sm:tracking-[0.24em]"
               style={{ "--liquid-color": "#4169e1" } as React.CSSProperties}
             >
               {heroText.viewCv}
@@ -167,9 +167,9 @@ export default function Hero({ headerLinks, cvLink }: HeroProps) {
         </motion.div>
       </div>
 
-      <motion.div variants={item} className="relative mx-auto w-full max-w-[420px]">
+      <motion.div variants={item} className="relative mx-auto w-full max-w-[300px] sm:max-w-[360px] md:max-w-[420px]">
         <FloatingBadges />
-        <div className="relative aspect-square w-full p-6">
+        <div className="relative aspect-square w-full p-3 sm:p-6">
           <div className="relative flex h-full w-full items-center justify-center">
             <motion.div
               className="relative h-[95%] w-[95%] rounded-full border border-slate-200/30 bg-slate-300/10 p-1.5 backdrop-blur-md"

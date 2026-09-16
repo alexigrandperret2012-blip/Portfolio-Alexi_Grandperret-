@@ -19,7 +19,7 @@ export default function ContactPage() {
       navEducation: lang === "fr" ? "Éducation" : "Education",
       navJourney: lang === "fr" ? "Expérience" : "Experience",
       navProjects: lang === "fr" ? "Projets" : "Projects",
-      navSkills: lang === "fr" ? "Competences" : "Skills",
+      navSkills: lang === "fr" ? "Compétences" : "Skills",
       navPersonal: lang === "fr" ? "Perso" : "Personal",
       navContact: lang === "fr" ? "Contact" : "Contact",
       title: lang === "fr" ? "Entrons en liaison" : "Get in Touch",
@@ -27,16 +27,16 @@ export default function ContactPage() {
       boxCurrentLabel: lang === "fr" ? "Poste actuel" : "Current Position",
       boxCurrentValue:
         lang === "fr"
-          ? "Etudiant ingenieur propulsion\nIPSA Toulouse"
+          ? "Étudiant ingénieur en propulsion\nIPSA Toulouse"
           : "Propulsion engineering student\nIPSA Toulouse",
       boxFromLabel: lang === "fr" ? "Basé à" : "Based in",
       boxFromValue: lang === "fr" ? "France, Toulouse" : "France, Toulouse",
-      boxLanguageLabel: lang === "fr" ? "Langues" : "Language",
+      boxLanguageLabel: lang === "fr" ? "Langues" : "Languages",
       boxLanguageValue: lang === "fr" ? "Français, Anglais, Espagnol, Italien, Portugais" : "French, English, Spanish, Italian, Portuguese",
-      boxExperienceLabel: lang === "fr" ? "Experience" : "Experience",
-      boxExperienceValue: lang === "fr" ? "4+ stages" : "4+ internships",
+      boxExperienceLabel: lang === "fr" ? "Expérience" : "Experience",
+      boxExperienceValue: lang === "fr" ? "7 stages et contrats" : "7 internships and contracts",
       boxFreelanceLabel: lang === "fr" ? "Disponibilité" : "Availability",
-      boxFreelanceValue: lang === "fr" ? "Début Février 2027" : "Early February 2027",
+      boxFreelanceValue: lang === "fr" ? "Début février 2027" : "Early February 2027",
     }),
     [lang],
   );
@@ -44,10 +44,10 @@ export default function ContactPage() {
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-border bg-bg/85 backdrop-blur-md">
-        <nav className="mx-auto flex max-w-[1100px] items-center justify-between px-8 py-4.5">
-          <div className="flex items-center gap-2.5 font-display text-[15px] font-semibold tracking-wide text-metal-light">
+        <nav className="mx-auto flex max-w-[1100px] items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+          <div className="flex min-w-0 items-center gap-2 font-display text-[13px] font-semibold tracking-wide text-metal-light sm:gap-2.5 sm:text-[15px]">
             <span className="h-2.5 w-2.5 rotate-45 bg-accent" />
-            {text.brand}
+            <span className="truncate">{text.brand}</span>
           </div>
           <div className="flex items-center gap-4">
             <div className="hidden items-center gap-8 text-[14px] font-semibold sm:flex">
@@ -80,22 +80,25 @@ export default function ContactPage() {
                 {text.contactTop}
               </Link>
             </div>
+            <Link href="/" className="rounded-full border border-white/15 px-3 py-2 font-mono text-[10px] uppercase tracking-wide text-metal-light sm:hidden">
+              {text.professionalTop}
+            </Link>
             <LanguageToggle />
           </div>
         </nav>
       </header>
 
-      <main className="relative min-h-screen overflow-hidden border-b border-border bg-bg py-20 text-text">
+      <main className="relative min-h-screen overflow-hidden border-b border-border bg-bg py-12 text-text sm:py-20">
         <div className="contact-grid-bg pointer-events-none absolute inset-0" />
         <div className="pointer-events-none absolute inset-0 opacity-60">
           <div className="absolute -left-24 top-12 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
           <div className="absolute -right-20 bottom-16 h-72 w-72 rounded-full bg-metal-light/10 blur-3xl" />
         </div>
 
-        <section className="relative mx-auto grid w-full max-w-[1120px] gap-8 px-8 lg:grid-cols-[1.25fr_0.95fr]">
-          <div className="contact-appear rounded-2xl border border-border bg-bg-panel/72 p-6 shadow-[0_24px_60px_rgba(0,0,0,0.22)] backdrop-blur md:p-8">
-            <h1 className="font-display text-4xl font-semibold leading-tight text-metal-light md:text-[52px]">{text.title}</h1>
-            <a href="mailto:alexi.grandperret@ipsa.fr" className="liquid-button mt-10 inline-flex items-center gap-3 rounded-full border border-accent px-5 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-accent">
+        <section className="relative mx-auto grid w-full max-w-[1120px] gap-6 px-4 sm:px-6 lg:grid-cols-[1.25fr_0.95fr] lg:gap-8 lg:px-8">
+          <div className="contact-appear rounded-xl border border-border bg-bg-panel/72 p-5 shadow-[0_24px_60px_rgba(0,0,0,0.22)] backdrop-blur sm:rounded-2xl sm:p-6 md:p-8">
+            <h1 className="font-display text-3xl font-semibold leading-tight text-metal-light sm:text-4xl md:text-[52px]">{text.title}</h1>
+            <a href="mailto:alexi.grandperret@ipsa.fr" className="liquid-button mt-6 inline-flex min-h-11 items-center gap-3 rounded-full border border-accent px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-accent sm:mt-10 sm:text-sm sm:tracking-[0.16em]">
               {text.writeEmail}
             </a>
           </div>

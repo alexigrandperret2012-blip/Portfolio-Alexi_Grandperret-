@@ -14,7 +14,7 @@ export default function LanguageToggle() {
       }}
       leftText="FR"
       rightText="EN"
-      ariaLabel={lang === "fr" ? "French language selected" : "English language selected"}
+      ariaLabel={lang === "fr" ? "Passer le site en anglais" : "Switch the website to French"}
       className="translate-y-[1px]"
     />
   );

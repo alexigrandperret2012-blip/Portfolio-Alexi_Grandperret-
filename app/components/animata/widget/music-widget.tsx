@@ -3,6 +3,7 @@
 import { Music, Music2, Music3, Pause, Play, SkipBack, SkipForward } from "lucide-react";
 import { useState } from "react";
 import { absoluteUrl, cn } from "@/app/lib/utils";
+import { useLanguage } from "@/app/components/LanguageProvider";
 
 export type MusicTrack = {
   title: string;
@@ -30,6 +31,7 @@ export default function MusicWidget({
   defaultPlaying = false,
   compact = false,
 }: MusicWidgetProps) {
+  const { lang } = useLanguage();
   const [index, setIndex] = useState(0);
   const [playing, setPlaying] = useState(defaultPlaying);
 
@@ -55,7 +57,7 @@ export default function MusicWidget({
 
         <button
           type="button"
-          aria-label="Previous track"
+          aria-label={lang === "fr" ? "Piste précédente" : "Previous track"}
           className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-text-dim transition hover:bg-white/8 hover:text-metal-light"
           onClick={() => setIndex((i) => (i - 1 + safeTracks.length) % safeTracks.length)}
         >
@@ -64,7 +66,7 @@ export default function MusicWidget({
 
         <button
           type="button"
-          aria-label={playing ? "Pause" : "Play"}
+          aria-label={playing ? "Pause" : (lang === "fr" ? "Lecture" : "Play")}
           className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/90 text-[#2b3160] transition hover:bg-white"
           onClick={() => setPlaying((p) => !p)}
         >
@@ -73,7 +75,7 @@ export default function MusicWidget({
 
         <button
           type="button"
-          aria-label="Next track"
+          aria-label={lang === "fr" ? "Piste suivante" : "Next track"}
           className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-text-dim transition hover:bg-white/8 hover:text-metal-light"
           onClick={() => setIndex((i) => (i + 1) % safeTracks.length)}
         >
@@ -109,7 +111,7 @@ export default function MusicWidget({
       <div className="mt-2 flex items-center justify-evenly">
         <button
           type="button"
-          aria-label="Previous track"
+          aria-label={lang === "fr" ? "Piste précédente" : "Previous track"}
           className="flex min-h-11 min-w-11 touch-manipulation items-center justify-center rounded-full"
           onClick={() => setIndex((i) => (i - 1 + safeTracks.length) % safeTracks.length)}
         >
@@ -118,7 +120,7 @@ export default function MusicWidget({
 
         <button
           type="button"
-          aria-label={playing ? "Pause" : "Play"}
+          aria-label={playing ? "Pause" : (lang === "fr" ? "Lecture" : "Play")}
           className="flex min-h-11 min-w-11 touch-manipulation items-center justify-center rounded-full"
           onClick={() => setPlaying((p) => !p)}
         >
@@ -127,7 +129,7 @@ export default function MusicWidget({
 
         <button
           type="button"
-          aria-label="Next track"
+          aria-label={lang === "fr" ? "Piste suivante" : "Next track"}
           className="flex min-h-11 min-w-11 touch-manipulation items-center justify-center rounded-full"
           onClick={() => setIndex((i) => (i + 1) % safeTracks.length)}
         >

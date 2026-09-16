@@ -31,6 +31,19 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     document.cookie = `site-lang=${nextLang}; path=/; max-age=31536000; samesite=lax`;
   };
 
+  useEffect(() => {
+    document.title = lang === "fr"
+      ? "Alexi Grandperret — Propulsion et systèmes aérospatiaux"
+      : "Alexi Grandperret — Aerospace Propulsion and Systems";
+    const description = document.querySelector('meta[name="description"]');
+    description?.setAttribute(
+      "content",
+      lang === "fr"
+        ? "Élève-ingénieur en dernière année à l'IPSA Toulouse, spécialisé en propulsion aérospatiale."
+        : "Final-year engineering student at IPSA Toulouse, specializing in aerospace propulsion.",
+    );
+  }, [lang]);
+
   const toggleLang = () => {
     setLang(lang === "fr" ? "en" : "fr");
   };

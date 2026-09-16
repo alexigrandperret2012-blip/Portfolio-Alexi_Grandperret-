@@ -83,7 +83,7 @@ export default function ProjectFilter({ projects }: { projects: Project[] }) {
           </button>
         ))}
       </div>
-      <div className="pointer-events-none fixed left-0 top-24 z-20 h-96 w-[clamp(13rem,24vw,19rem)]" aria-hidden="true">
+      <div className="pointer-events-none fixed left-0 top-24 z-20 hidden h-96 w-[clamp(13rem,24vw,19rem)] md:block" aria-hidden="true">
         <motion.div
           className="relative h-full w-full"
           style={{ x: aircraftX }}
@@ -101,7 +101,7 @@ export default function ProjectFilter({ projects }: { projects: Project[] }) {
       <motion.div
         layout
         transition={{ layout: { duration: 0.62, ease: [0.22, 1, 0.36, 1] } }}
-        className="grid grid-cols-1 gap-6 sm:grid-cols-2"
+        className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6"
       >
         <AnimatePresence mode="popLayout">
           {filtered.map((p) => (

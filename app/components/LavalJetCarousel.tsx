@@ -37,7 +37,7 @@ export default function LavalJetCarousel({ lang }: { lang: "fr" | "en" }) {
           src: "/Laval/image-1788423731810.png",
           alt: "Champ de vitesse convergé du jet sur-détendu",
           label: "5. Mesurer l'accélération",
-          detail: "La vitesse reste maximale au coeur du jet, puis varie à chaque cellule lorsque l'écoulement cherche à s'ajuster à la pression ambiante.",
+          detail: "La vitesse reste maximale au cœur du jet, puis varie à chaque cellule lorsque l'écoulement cherche à s'ajuster à la pression ambiante.",
         },
         {
           src: "/Laval/image-1788423744828.png",

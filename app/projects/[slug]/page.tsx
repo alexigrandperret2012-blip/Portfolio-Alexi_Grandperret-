@@ -64,7 +64,7 @@ function LavalProjectPage({ lang }: { lang: "fr" | "en" }) {
           <div className="mt-8 grid items-end gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
               <p className="font-mono text-xs uppercase tracking-[0.34em] text-accent">Propulsion / CFD</p>
-              <h1 className="mt-5 max-w-3xl font-display text-4xl font-semibold leading-[1.05] text-metal-light sm:text-6xl">
+              <h1 className="mt-5 max-w-3xl font-display text-3xl font-semibold leading-[1.08] text-metal-light sm:text-5xl lg:text-6xl">
                 {fr ? "Une tuyère de Laval, de la théorie au panache supersonique." : "A Laval nozzle, from theory to supersonic plume."}
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-8 text-text-dim sm:text-lg">
@@ -219,8 +219,8 @@ function DroneProjectPage({ lang }: { lang: "fr" | "en" }) {
         <div className="relative mx-auto max-w-7xl px-6 pb-16 pt-8 sm:px-10 lg:px-12 lg:pb-24">
           <div className="mt-8 grid items-end gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
-              <p className="font-mono text-xs uppercase tracking-[0.34em] text-accent">Automatique / Simulation</p>
-              <h1 className="mt-5 max-w-3xl font-display text-4xl font-semibold leading-[1.05] text-metal-light sm:text-6xl">{fr ? "Un drone autonome, du modèle à la trajectoire." : "An autonomous drone, from model to trajectory."}</h1>
+              <p className="font-mono text-xs uppercase tracking-[0.34em] text-accent">{fr ? "Automatique / Simulation" : "Automatic Control / Simulation"}</p>
+              <h1 className="mt-5 max-w-3xl font-display text-3xl font-semibold leading-[1.08] text-metal-light sm:text-5xl lg:text-6xl">{fr ? "Un drone autonome, du modèle à la trajectoire." : "An autonomous drone, from model to trajectory."}</h1>
               <p className="mt-6 max-w-2xl text-base leading-8 text-text-dim sm:text-lg">{fr ? "Conception sous MATLAB/Simulink d'une chaîne de commande pour stabiliser un quadricoptère, allouer les efforts aux moteurs et suivre une trajectoire 3D." : "MATLAB/Simulink design of a control chain to stabilize a quadcopter, allocate motor effort, and follow a 3D trajectory."}</p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <a href="/Drone/Projet_Drone.pdf" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-accent px-4 py-3 font-mono text-xs uppercase tracking-wide text-white transition hover:bg-[#557cf0]"><Download className="size-4" aria-hidden="true" />{labels.report}</a>
@@ -351,8 +351,8 @@ function SafProjectPage({ lang }: { lang: "fr" | "en" }) {
 
       <section className="border-b border-border bg-bg-panel-2">
         <div className="mx-auto max-w-5xl px-6 pb-20 pt-16 sm:px-10 lg:px-12 lg:pb-28">
-          <p className="font-mono text-xs uppercase tracking-[0.34em] text-accent">Energy / Sustainable aviation</p>
-          <h1 className="mt-5 max-w-4xl font-display text-4xl font-semibold leading-[1.05] text-metal-light sm:text-6xl">
+          <p className="font-mono text-xs uppercase tracking-[0.34em] text-accent">{fr ? "Énergie / Aviation durable" : "Energy / Sustainable Aviation"}</p>
+          <h1 className="mt-5 max-w-4xl font-display text-3xl font-semibold leading-[1.08] text-metal-light sm:text-5xl lg:text-6xl">
             {fr ? "Comprendre ce que les carburants durables changent réellement." : "Understanding what sustainable aviation fuels really change."}
           </h1>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-text-dim">
@@ -487,7 +487,7 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
   }
 
   return (
-    <div className="mx-auto max-w-[900px] px-8 py-20">
+    <div className="mx-auto max-w-[900px] px-4 py-12 sm:px-6 sm:py-20 lg:px-8">
       <Link
         href="/"
         className="mb-8 inline-block rounded-sm border border-border bg-bg-panel px-4 py-2 text-sm text-text-dim transition hover:border-accent hover:text-white"

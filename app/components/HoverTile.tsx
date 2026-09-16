@@ -7,11 +7,13 @@ export default function HoverTile({
   className = "",
   onHoverStart,
   onHoverEnd,
+  onClick,
 }: {
   children: React.ReactNode;
   className?: string;
   onHoverStart?: () => void;
   onHoverEnd?: () => void;
+  onClick?: () => void;
 }) {
   return (
     <motion.div
@@ -20,6 +22,7 @@ export default function HoverTile({
       className={className}
       onHoverStart={onHoverStart}
       onHoverEnd={onHoverEnd}
+      onClick={onClick}
     >
       {children}
     </motion.div>

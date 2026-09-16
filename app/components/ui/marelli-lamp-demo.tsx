@@ -29,7 +29,7 @@ export default function MarelliLampDemo() {
   ];
 
   return (
-    <div ref={demoRef} className="-mt-16 space-y-[-8.5rem]">
+    <div ref={demoRef} className="-mt-8 space-y-[-7rem] sm:-mt-16 sm:space-y-[-8.5rem]">
       <LampContainer />
       <MotionCarousel slides={slides} imageFilter={carouselFilter} />
     </div>

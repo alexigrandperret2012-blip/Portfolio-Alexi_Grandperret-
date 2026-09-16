@@ -24,10 +24,10 @@ export default function PersonalPage() {
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-border bg-bg/85 backdrop-blur-md">
-        <nav className="mx-auto flex max-w-[1100px] items-center justify-between px-8 py-4.5">
-          <div className="flex items-center gap-2.5 font-display text-[15px] font-semibold tracking-wide text-metal-light">
+        <nav className="mx-auto flex max-w-[1100px] items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+          <div className="flex min-w-0 items-center gap-2 font-display text-[13px] font-semibold tracking-wide text-metal-light sm:gap-2.5 sm:text-[15px]">
             <span className="h-2.5 w-2.5 rotate-45 bg-accent" />
-            ALEXI&nbsp;GRANDPERRET
+            <span className="truncate">ALEXI&nbsp;GRANDPERRET</span>
           </div>
           <div className="flex items-center gap-4">
             <div className="hidden items-center gap-8 text-[14px] font-semibold sm:flex">
@@ -63,20 +63,23 @@ export default function PersonalPage() {
                 {navText.contactTop}
               </Link>
             </div>
+            <Link href="/" className="rounded-full border border-white/15 px-3 py-2 font-mono text-[10px] uppercase tracking-wide text-metal-light sm:hidden">
+              {navText.professionalTop}
+            </Link>
             <LanguageToggle />
           </div>
         </nav>
       </header>
 
-      <main className="relative min-h-screen overflow-hidden bg-bg px-8 py-20 text-text">
+      <main className="relative min-h-screen overflow-hidden bg-bg px-4 py-12 text-text sm:px-6 sm:py-20 lg:px-8">
         <div className="construction-grid absolute inset-0 opacity-35" aria-hidden="true" />
         <div className="relative mx-auto max-w-[1100px]">
           <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.3em] text-accent">
             <HardHat className="size-4" aria-hidden="true" />
             {lang === "fr" ? "Zone personnelle en construction" : "Personal area under construction"}
           </div>
-          <h1 className="mt-5 max-w-3xl font-display text-4xl font-semibold leading-tight text-metal-light sm:text-6xl">
-            {lang === "fr" ? "Centres d'intérêts : transmission en cours." : "Interests: transmission in progress."}
+          <h1 className="mt-5 max-w-3xl font-display text-3xl font-semibold leading-tight text-metal-light sm:text-5xl lg:text-6xl">
+            {lang === "fr" ? "Centres d'intérêt : transmission en cours." : "Interests: transmission in progress."}
           </h1>
           <div className="construction-tapes mt-12 grid gap-4" aria-label={lang === "fr" ? "Contenu à venir" : "Upcoming content"}>
             {(lang === "fr" ? ["LECTURES & IDÉES", "PROJETS EXTÉRIEURS", "ANECDOTES DE PARCOURS"] : ["READING & IDEAS", "EXTERNAL PROJECTS", "JOURNEY ANECDOTES"]).map((label, index) => (
@@ -88,12 +91,12 @@ export default function PersonalPage() {
             ))}
           </div>
 
-          <div className="mt-12 flex gap-3">
+          <div className="mt-8 flex gap-3 sm:mt-12">
           <Link
             href="/"
             className="liquid-button rounded-full border border-accent px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.2em] text-accent"
           >
-            {lang === "fr" ? "Retour Accueil" : "Back Home"}
+            {lang === "fr" ? "Retour à l'accueil" : "Back Home"}
           </Link>
         </div>
       </div>
@@ -107,7 +110,7 @@ export default function PersonalPage() {
             lang === "fr"
               ? [
                   { title: "Ciels d'Altitude", artist: "Alexi Lab" },
-                  { title: "Poussee Orbitale", artist: "Nozzle Theory" },
+                  { title: "Poussée orbitale", artist: "Nozzle Theory" },
                   { title: "Ligne de Vol", artist: "Blue Burn" },
                 ]
               : [

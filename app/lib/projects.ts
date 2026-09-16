@@ -94,7 +94,7 @@ export const projects: Project[] = [
       },
       {
         label: "Validation",
-        description: "Vérification des pressions et de la Mach number au col.",
+        description: "Vérification des pressions et du nombre de Mach au col.",
       },
     ],
   },
@@ -120,7 +120,7 @@ export const projects: Project[] = [
       },
       {
         label: "Synthèse",
-        description: "Comparaison des scénarios avec & sans SAF et recommandations.",
+        description: "Comparaison des scénarios avec et sans SAF et recommandations.",
       },
     ],
   },
