@@ -30,7 +30,7 @@ export default function LampDemo() {
   ];
 
   return (
-    <div ref={demoRef} className="-mt-8 space-y-[-7rem] sm:-mt-16 sm:space-y-[-8.5rem]">
+    <div ref={demoRef} className="mt-1 space-y-[-1.25rem] sm:-mt-16 sm:space-y-[-8.5rem]">
       <LampContainer />
       <MotionCarousel slides={slides} imageFilter={carouselFilter} />
     </div>

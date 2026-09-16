@@ -717,6 +717,95 @@ video {
 }
 
 @media (max-width: 639px) {
+  .startup-overlay {
+    min-height: 100dvh;
+    background: #020617;
+    animation-duration: 240ms;
+  }
+
+  .startup-overlay__shutter {
+    transition-duration: 560ms;
+  }
+
+  .startup-overlay__center-line {
+    animation-duration: 620ms;
+  }
+
+  .startup-overlay--opening .startup-overlay__center-line {
+    animation-duration: 520ms;
+  }
+
+  .startup-overlay--fade {
+    transition-duration: 420ms;
+  }
+
+  .startup-overlay__grid {
+    inset: -8% 0;
+    background-size: 54px 54px, 54px 54px;
+    transform: perspective(480px) rotateX(42deg) scale(1.04);
+    transform-origin: center 40%;
+  }
+
+  .startup-overlay__pulse {
+    animation-duration: 800ms;
+  }
+
+  .startup-overlay__noise {
+    display: none;
+  }
+
+  .startup-overlay__message {
+    top: 54%;
+    width: min(100% - 2rem, 24rem);
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+  }
+
+  .startup-overlay__cursor {
+    display: none;
+  }
+
+  .lamp-container,
+  .lamp-stage {
+    min-height: 7.5rem;
+    overflow: hidden;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+
+  .lamp-beam,
+  .lamp-obscurer,
+  .lamp-bottom-fade {
+    display: none;
+  }
+
+  .lamp-halo {
+    height: 3.5rem;
+    max-width: min(80vw, 18rem);
+    transform: translateY(-0.75rem);
+    opacity: 0.42 !important;
+    filter: blur(24px);
+  }
+
+  .lamp-line {
+    max-width: min(72vw, 16rem);
+    transform: translateY(-0.75rem);
+    box-shadow: 0 0 18px 5px rgba(125, 211, 252, 0.34);
+  }
+
+  .motion-carousel-frame {
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.26);
+  }
+
+  .motion-carousel-glow {
+    inset-inline: 0;
+    height: 5rem;
+    opacity: 0.48;
+    filter: blur(28px);
+  }
+
   .contact-fact-card,
   .contact-fact-card--language {
     min-height: 0;

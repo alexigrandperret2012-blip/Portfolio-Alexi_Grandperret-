@@ -42,7 +42,7 @@ export function MotionCarousel({ slides, className, imageFilter }: MotionCarouse
     <div className={cn("relative w-full", className)}>
       <motion.div
         ref={carouselRef}
-        className="relative mx-auto aspect-[4/3] w-full max-w-3xl overflow-hidden rounded-xl border border-white/15 bg-[#020814]/70 shadow-[0_-16px_44px_rgba(34,211,238,0.12),0_14px_32px_rgba(0,0,0,0.28)] sm:aspect-auto sm:h-[14.5rem] sm:rounded-2xl sm:shadow-[0_-24px_70px_rgba(34,211,238,0.16),0_18px_45px_rgba(0,0,0,0.32)] md:h-[18.5rem]"
+        className="motion-carousel-frame relative mx-auto aspect-[4/3] w-full max-w-3xl overflow-hidden rounded-lg border border-white/10 bg-[#020814]/70 shadow-[0_12px_28px_rgba(0,0,0,0.24)] sm:aspect-auto sm:h-[14.5rem] sm:rounded-2xl sm:border-white/15 sm:shadow-[0_-24px_70px_rgba(34,211,238,0.16),0_18px_45px_rgba(0,0,0,0.32)] md:h-[18.5rem]"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         onFocus={() => setIsPaused(true)}
@@ -85,7 +85,7 @@ export function MotionCarousel({ slides, className, imageFilter }: MotionCarouse
         </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-t from-[#020814]/62 via-transparent to-black/5" />
         <div
-          className="pointer-events-none absolute -inset-x-[12%] -top-10 h-40 rounded-[50%] bg-cyan-200/24 blur-3xl mix-blend-screen"
+          className="motion-carousel-glow pointer-events-none absolute -inset-x-[12%] -top-10 h-40 rounded-[50%] bg-cyan-200/24 blur-3xl mix-blend-screen"
           style={{ animation: "carousel-glow-drift 8s ease-in-out infinite" }}
         />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_-8%,rgba(186,230,253,0.34),transparent_42%),radial-gradient(ellipse_at_50%_110%,rgba(2,8,20,0.56),transparent_62%),linear-gradient(90deg,rgba(2,8,20,0.16),transparent_28%,transparent_72%,rgba(2,8,20,0.16))]" />

@@ -22,11 +22,12 @@ export default function StartupOverlay() {
       if (ssrMask) ssrMask.style.display = "none";
     }, 80);
 
-    const COUNTDOWN_START = 5;
-    const COUNTDOWN_STEP_MS = 1200;
+    const isMobile = window.matchMedia("(max-width: 639px)").matches;
+    const COUNTDOWN_START = isMobile ? 2 : 5;
+    const COUNTDOWN_STEP_MS = isMobile ? 360 : 1200;
     const OPENING_DELAY_MS = COUNTDOWN_START * COUNTDOWN_STEP_MS;
-    const FADE_DELAY_MS = OPENING_DELAY_MS + 900;
-    const REMOVE_DELAY_MS = OPENING_DELAY_MS + 1700;
+    const FADE_DELAY_MS = OPENING_DELAY_MS + (isMobile ? 420 : 900);
+    const REMOVE_DELAY_MS = OPENING_DELAY_MS + (isMobile ? 760 : 1700);
     const timerIds: number[] = [];
     let fastForwarded = false;
 
@@ -86,9 +87,11 @@ export default function StartupOverlay() {
     };
 
     window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("pointerdown", fastForwardIntro, { once: true });
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("pointerdown", fastForwardIntro);
       clearScheduledTimers();
     };
   }, []);
