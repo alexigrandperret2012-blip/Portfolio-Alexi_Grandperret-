@@ -73,32 +73,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "dimensionnement-tuyere-fusee",
-    tag: "Propulsion",
-    title: "Dimensionnement de tuyère fusée",
-    desc: "Calculs de dimensionnement d'une tuyère : détermination de la section au col et analyse de l'écoulement isentropique.",
-    tools: ["Écoulement isentropique", "Calcul"],
-    details: [
-      "Calcul des surfaces de col et de sortie en fonction du rapport de pression.",
-      "Application des relations isentropiques pour un gaz parfait et bilan énergétique.",
-      "Comparaison des performances théoriques aux résultats de simulation.",
-    ],
-    steps: [
-      {
-        label: "Analyse",
-        description: "Choix des conditions de fonctionnement et du rendement thermodynamique souhaité.",
-      },
-      {
-        label: "Calculs",
-        description: "Détermination de la distribution de section le long de la tuyère.",
-      },
-      {
-        label: "Validation",
-        description: "Vérification des pressions et du nombre de Mach au col.",
-      },
-    ],
-  },
-  {
     slug: "analyse-saf-virgin-atlantic-flight-100",
     tag: "Énergie / Aviation durable",
     title: "Analyse SAF — cas Virgin Atlantic Flight 100",
